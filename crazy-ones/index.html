@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Here's to the Crazy Ones</title>
+  
+  <!-- Fonts - SF Pro inspired -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Gradient orbs background -->
+  <div class="gradient-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 1: HERO - OPENING LINE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section hero" id="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="badge-icon">✦</span>
+        <span>Think Different</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="word-animate">Here's</span>
+        <span class="word-animate">to</span>
+        <span class="word-animate">the</span>
+        <span class="word-animate highlight-word">crazy</span>
+        <span class="word-animate highlight-word">ones.</span>
+      </h1>
+      <div class="scroll-cue">
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 2: THE MISFITS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="misfits">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-block">
+          <p class="large-text">
+            <span class="line-reveal">The <span class="text-gradient">misfits</span>.</span>
+            <span class="line-reveal">The <span class="text-gradient">rebels</span>.</span>
+            <span class="line-reveal">The <span class="text-gradient">troublemakers</span>.</span>
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame" data-parallax="0.1">
+            <img src="lightbulb.png" alt="Innovation - The spark of ideas" class="frame-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 3: ROUND PEGS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark" id="pegs">
+    <div class="container">
+      <div class="centered-text">
+        <p class="display-text">
+          <span class="char-reveal">The round pegs</span>
+        </p>
+        <p class="display-text">
+          <span class="char-reveal">in the <em>square</em> holes.</span>
+        </p>
+      </div>
+      
+      <!-- Animated shapes -->
+      <div class="shapes-container">
+        <div class="shape circle" data-speed="0.5"></div>
+        <div class="shape square" data-speed="0.3"></div>
+        <div class="shape triangle" data-speed="0.7"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 4: THEY SEE THINGS DIFFERENTLY
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="different">
+    <div class="container">
+      <div class="split-layout reverse">
+        <div class="text-block">
+          <p class="large-text stagger-words">
+            The ones who see things <span class="underline-animate">differently</span>.
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame" data-parallax="0.15">
+            <img src="eye.png" alt="Vision - Seeing things differently" class="frame-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5: NOT FOND OF RULES
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="rules">
+    <div class="container narrow">
+      <div class="inline-text-block">
+        <p class="body-text fade-up">They're not fond of <span class="strike-through">rules</span>.</p>
+        <p class="body-text fade-up">And they have no respect for the <span class="text-gradient">status quo</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 6: QUOTE / DISAGREE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section quote-section" id="quote">
+    <div class="container">
+      <blockquote class="big-quote">
+        <span class="quote-word" data-delay="0">You</span>
+        <span class="quote-word" data-delay="0.1">can</span>
+        <span class="quote-word highlight" data-delay="0.2">quote</span>
+        <span class="quote-word" data-delay="0.3">them,</span>
+        <span class="quote-word" data-delay="0.4">disagree</span>
+        <span class="quote-word" data-delay="0.5">with</span>
+        <span class="quote-word" data-delay="0.6">them,</span>
+        <br>
+        <span class="quote-word" data-delay="0.7">glorify</span>
+        <span class="quote-word" data-delay="0.8">or</span>
+        <span class="quote-word highlight" data-delay="0.9">vilify</span>
+        <span class="quote-word" data-delay="1.0">them.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 7: THE ONLY THING
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark" id="only">
+    <div class="container">
+      <div class="centered-text">
+        <p class="display-text typewriter" id="typewriter-text">
+          About the only thing you can't do is ignore them.
+        </p>
+        <div class="cursor-blink"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 8: THEY CHANGE THINGS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="change">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-block">
+          <p class="large-text">
+            <span class="line-reveal">Because they</span>
+            <span class="line-reveal"><span class="text-gradient big">change</span></span>
+            <span class="line-reveal">things.</span>
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame" data-parallax="0.2">
+            <img src="cog.png" alt="Change - Transforming the world" class="frame-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 9: THEY PUSH
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section gradient-section" id="push">
+    <div class="container narrow">
+      <p class="statement-text">
+        <span class="word-pop">They</span>
+        <span class="word-pop">push</span>
+        <span class="word-pop">the</span>
+        <span class="word-pop highlight-bg">human</span>
+        <span class="word-pop highlight-bg">race</span>
+        <span class="word-pop">forward.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 10: WHILE SOME SEE THEM
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="crazy">
+    <div class="container">
+      <div class="comparison-block">
+        <div class="compare-left">
+          <p class="compare-text">
+            While some may see them as the <span class="strikeout">crazy ones</span>,
+          </p>
+        </div>
+        <div class="compare-divider">
+          <div class="divider-line"></div>
+        </div>
+        <div class="compare-right">
+          <p class="compare-text">
+            we see <span class="text-gradient">genius</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 11: BECAUSE THE PEOPLE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark finale-section" id="finale">
+    <div class="container">
+      <div class="finale-text">
+        <p class="display-text line-by-line">
+          <span class="line">Because the people who are crazy enough</span>
+          <span class="line">to think they can <em>change the world</em>,</span>
+        </p>
+        <p class="display-text finale-reveal">
+          <span class="finale-word">are the ones who</span>
+          <span class="finale-highlight">do.</span>
+        </p>
+      </div>
+      
+      <!-- Apple logo placeholder -->
+      <div class="logo-reveal">
+        <svg class="apple-logo" viewBox="0 0 50 60" fill="currentColor">
+          <path class="logo-path" d="M40 30c0-5-3-9-7-11 1-3 0-7-2-10-3 2-5 5-6 8-2-1-4-1-5-1s-3 0-5 1c-1-3-3-6-6-8-2 3-3 7-2 10-4 2-7 6-7 11 0 12 9 20 15 20 2 0 3 0 5-1 2 1 3 1 5 1 6 0 15-8 15-20z"/>
+          <ellipse class="logo-path" cx="25" cy="8" rx="4" ry="6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p>Animated Storytelling Template</p>
+      <p class="footer-note">Inspired by Apple's "Think Different" • <a href="https://wabi.ai">Wabi.ai</a></p>
+    </div>
+  </footer>
+
+  <script src="animations.js"></script>
+</body>
+</html>

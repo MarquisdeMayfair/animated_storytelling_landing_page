@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailingPigeon | The Message Must Get Through</title>
+  
+  <!-- Fonts - Vintage/WW1 style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Vintage paper texture overlay -->
+  <div class="paper-overlay"></div>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 1: HERO - OPENING
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section hero" id="hero" style="background-image: url('ww1 image.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-stamp">
+        <span class="stamp-text">CLASSIFIED</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">The mission was</span>
+        <span class="title-line">
+          <span class="crossout-swap crossout-swap--hero">
+            <span class="crossout-old">impossible</span>
+            <svg class="crossout-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,6 Q25,1 50,7 Q75,12 100,3" />
+            </svg>
+          </span>
+          ...
+        </span>
+      </h1>
+      <div class="hero-subtitle">
+        <p class="typewriter-text" id="hero-typewriter"></p>
+      </div>
+    </div>
+    
+    <!-- Animated pigeon silhouette flying -->
+    <div class="pigeon-flying" id="pigeon-flying">
+      <img src="flying.png" alt="Flying pigeon" class="flying-pigeon-img">
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 2: THE MISSION
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section mission" id="mission">
+    <div class="container">
+      <div class="mission-text">
+        <p class="story-line">The sky was torn open by gunfire.</p>
+        <p class="story-line">The ground was chaos.</p>
+        <p class="story-line emphasis" id="still-flew">And still, the pigeon flew.</p>
+        <div class="mission-flyby" aria-hidden="true">
+          <img src="flying.png" alt="" class="mission-flyby-img">
+        </div>
+      </div>
+      
+      <!-- War scene illustration -->
+      <div class="illustration-frame">
+        <img src="ww1 image.png" alt="WW1 battlefield scene" class="story-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 3: CHER AMI
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section chez-ami" id="chez-ami">
+    <div class="container">
+      <div class="pigeon-portrait">
+        <div class="portrait-frame">
+          <img src="Cher Ami Photo vintage.png" alt="Cher Ami - Hero Pigeon" class="pigeon-image">
+        </div>
+        <div class="portrait-label">
+          <span class="label-text">Cher Ami</span>
+          <span class="label-subtext">Mailing Pigeon No. 69-80085</span>
+        </div>
+      </div>
+      
+      <div class="story-block">
+        <p class="story-text">
+          Cher Ami was released into smoke and noise with a note tied to his leg.
+        </p>
+        <div class="bullet-points">
+          <span class="bullet">No armour.</span>
+          <span class="bullet">No escort.</span>
+          <span class="bullet">No second chance.</span>
+        </div>
+        <p class="story-text">
+          Just instinct, duty, and an unbreakable will to deliver.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 4: THE INJURIES
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section injuries" id="injuries">
+    <div class="container">
+      <div class="injury-wrap">
+        <img src="bullet hole.png" class="bullet-hole bullet-hole--injury bullet-hole--injury-1" data-delay="0" alt="" aria-hidden="true">
+        <img src="bullet hole.png" class="bullet-hole bullet-hole--injury bullet-hole--injury-2" data-delay="0.12" alt="" aria-hidden="true">
+        <img src="bullet hole.png" class="bullet-hole bullet-hole--injury bullet-hole--injury-3" data-delay="0.24" alt="" aria-hidden="true">
+        <div class="injury-list">
+        <div class="injury-item">
+          <span class="injury-icon">✗</span>
+          <span class="injury-text">He was shot.</span>
+        </div>
+        <div class="injury-item">
+          <span class="injury-icon">✗</span>
+          <span class="injury-text">Blinded in one eye.</span>
+        </div>
+        <div class="injury-item">
+          <span class="injury-icon">✗</span>
+          <span class="injury-text">A leg nearly gone.</span>
+        </div>
+      </div>
+      </div>
+      
+      <p class="heroic-line">
+        <span class="word-reveal">He</span>
+        <span class="word-reveal">flew</span>
+        <span class="word-reveal highlight">anyway.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5: THE HOSPITAL
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section hospital" id="hospital">
+    <div class="container">
+      <div class="hospital-frame">
+        <img src="hospital.png" alt="Cher Ami in hospital" class="hospital-image">
+      </div>
+      <div class="hospital-text">
+        <p class="hospital-line">Despite his injuries,</p>
+        <p class="hospital-line emphasis">he delivered the message.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5B: THE REASON
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section reason" id="reason">
+    <div class="container narrow">
+      <div class="reason-text">
+        <p class="reason-line">Because the message mattered.</p>
+        <p class="reason-line">Because stopping was never an option.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 6: TRANSITION - MOST EMAIL SYSTEMS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section transition" id="transition">
+    <div class="container">
+      <div class="transition-text">
+        <p class="transition-line">
+          Most email systems
+          <span class="crossout-swap" data-replace="stall">
+            <span class="crossout-old">quit</span>
+            <svg class="crossout-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,6 Q25,1 50,7 Q75,12 100,3" />
+            </svg>
+            <span class="crossout-new">stall</span>
+          </span>
+          far earlier than that.
+        </p>
+      </div>
+      
+      <div class="failure-wrap">
+        <img src="bullet hole.png" class="bullet-hole bullet-hole--transition" alt="" aria-hidden="true">
+        <div class="failure-list">
+        <div class="failure-item">
+          <span class="failure-icon">✗</span>
+          <span class="failure-text">They fail at prospecting.</span>
+        </div>
+        <div class="failure-item">
+          <span class="failure-icon">✗</span>
+          <span class="failure-text">They stumble on deliverability.</span>
+        </div>
+        <div class="failure-item">
+          <span class="failure-icon">✗</span>
+          <span class="failure-text">They burn domains, trip spam filters, wreck reputations, then quietly blame the user.</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 7: MAILINGPIGEON INTRO
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section product-intro" id="product-intro">
+    <div class="container">
+      <div class="radio-widget" id="radioWidget" role="button" tabindex="0" aria-label="Tune in (click to play/stop)">
+        <div class="radio-images" aria-hidden="true">
+          <img src="wireless.png" alt="" class="wireless-img">
+          <img src="dial large.png" alt="" class="dial-img">
+        </div>
+        <div class="tune-copy">
+          <span class="tune-label">tune in</span>
+          <span class="tune-meta">click</span>
+        </div>
+      </div>
+      
+      <div class="product-mission">
+        <p class="mission-line">MailingPigeon was built on a different idea.</p>
+        
+        <div class="principles">
+          <p class="principle">That delivery is a mission.</p>
+          <p class="principle">That messages deserve to arrive.</p>
+          <p class="principle highlight">That giving up halfway is not acceptable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 8: WHAT MAILINGPIGEON DOES
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section capabilities" id="capabilities">
+    <div class="container">
+      <p class="section-heading">
+        MailingPigeon does not just
+        <span class="crossout-swap" data-replace="deliver">
+          <span class="crossout-old">send</span>
+          <svg class="crossout-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0,6 Q25,1 50,7 Q75,12 100,3" />
+          </svg>
+          <span class="crossout-new">deliver</span>
+        </span>
+        emails.
+      </p>
+      
+      <div class="capabilities-stage">
+        <div class="capability-grid">
+          <div class="capability-card">
+            <div class="card-icon">🔍</div>
+            <h3 class="card-title">It scouts.</h3>
+            <p class="card-text">Finds the right prospects.</p>
+          </div>
+          
+          <div class="capability-card">
+            <div class="card-icon">📋</div>
+            <h3 class="card-title">It builds.</h3>
+            <p class="card-text">Clean, intelligent lists.</p>
+          </div>
+          
+          <div class="capability-card">
+            <div class="card-icon">🛤️</div>
+            <h3 class="card-title">It prepares.</h3>
+            <p class="card-text">Warms domains. Warms inboxes.</p>
+          </div>
+          
+          <div class="capability-card">
+            <div class="card-icon">📧</div>
+            <h3 class="card-title">It carries.</h3>
+            <p class="card-text">Every kind of message.</p>
+          </div>
+          
+          <div class="capability-card">
+            <div class="card-icon">👁️</div>
+            <h3 class="card-title">It watches.</h3>
+            <p class="card-text">Open rates. Replies. Bounces.</p>
+          </div>
+          
+          <div class="capability-card">
+            <div class="card-icon">🔄</div>
+            <h3 class="card-title">It adapts.</h3>
+            <p class="card-text">When conditions change.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- outside the normal margins / hugs the page edge -->
+    <div class="standing-pigeon-wrapper" aria-hidden="true">
+      <img src="ches stance trans-once.gif" alt="" class="standing-pigeon-gif">
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 9: LIKE CHEZ AMI
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section comparison" id="comparison">
+    <div class="container">
+      <div class="comparison-text">
+        <p class="comparison-line">Like Cher Ami, we expect resistance.</p>
+        
+        <div class="resistance-list">
+          <span class="resistance-item">Firewalls.</span>
+          <span class="resistance-item">Filters.</span>
+          <span class="resistance-item">Remembered mistakes from systems that came before.</span>
+        </div>
+        
+        <div class="response-list">
+          <p class="response-line">We don't panic.</p>
+          <p class="response-line">We don't rush.</p>
+          <p class="response-line">We don't brute force.</p>
+        </div>
+        
+        <div class="strategy-text">
+          <p class="strategy-line">We fly smarter.</p>
+          <p class="strategy-line">Lower when needed.</p>
+          <p class="strategy-line">Higher when safe.</p>
+          <p class="strategy-line emphasis">One message at a time if that's what the mission demands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 10: FINISH THE JOB
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section finish" id="finish">
+    <div class="container">
+      <div class="finish-text">
+        <h2 class="finish-heading">Finish the job.</h2>
+
+        <div class="poster-frame" aria-hidden="true">
+          <img src="we want you trans.png" alt="" class="poster-img">
+        </div>
+        
+        <p class="audience-line">MailingPigeon exists for teams who think the same way.</p>
+        
+        <div class="audience-list">
+          <div class="audience-item">
+            <span class="audience-icon">🚀</span>
+            <span class="audience-text">Founders who cannot afford burned domains.</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon">💼</span>
+            <span class="audience-text">Sales teams tired of half-working tools.</span>
+          </div>
+          <div class="audience-item">
+            <span class="audience-icon">⚙️</span>
+            <span class="audience-text">Operators who want the entire email lifecycle handled end to end.</span>
+          </div>
+        </div>
+        
+        <div class="mantra">
+          <p class="mantra-line">No excuses.</p>
+          <p class="mantra-line">Just delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 11: FINALE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section finale" id="finale">
+    <div class="container">
+      <div class="finale-content">
+        <p class="finale-line">Because email is not about sending.</p>
+        <p class="finale-line highlight">It is about arriving.</p>
+        
+        <div class="salute">
+          <p class="salute-line">We salute you, Cher Ami,</p>
+          <p class="salute-line">and like you,</p>
+          <p class="salute-line emphasis">MailingPigeon doesn't stop until the message gets through.</p>
+        </div>
+        
+        <div class="cta-section">
+          <button class="cta-button">
+            <span>Start Delivering</span>
+            <span class="button-icon">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="Mailing Pigeon Logo.png" alt="MailingPigeon Logo" class="footer-logo-img">
+      </div>
+      <p class="footer-text">MailingPigeon • The Message Must Get Through</p>
+    </div>
+  </footer>
+
+  <script src="animations.js"></script>
+</body>
+</html>

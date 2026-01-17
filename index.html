@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Raven | An Animated Story</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Ambient particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 1: HERO - THE RAVEN
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" style="background-image: url('raven background.png');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Edgar Allan Poe</span>
+      <h1 class="hero-title">
+        <span class="title-line" data-delay="0">Once upon</span>
+        <span class="title-line" data-delay="0.2">a <em>midnight</em></span>
+        <span class="title-line title-accent" data-delay="0.4">dreary</span>
+      </h1>
+      <p class="hero-subtitle">An animated journey through darkness and memory</p>
+      <button class="cta-btn" id="enterBtn">
+        <span>Enter the Tale</span>
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 2: OPENING VERSE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="story-section" id="opening">
+    <div class="story-block">
+      <div class="verse-number">I</div>
+      <p class="story-text large">
+        <span class="text-reveal">While I pondered, <em>weak</em> and <em>weary</em>,</span>
+      </p>
+      <p class="story-text">
+        <span class="text-reveal">Over many a quaint and curious volume of forgotten lore—</span>
+      </p>
+      <div class="cross-text-container">
+        <span class="cross-text">
+          While I nodded, nearly sleeping
+          <svg class="cross-line" viewBox="0 0 100 10" preserveAspectRatio="none">
+            <path d="M0,5 Q25,2 50,6 Q75,10 100,4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="replacement-text">suddenly there came a tapping</span>
+      </div>
+      <p class="story-text">
+        <span class="text-reveal">As of some one gently <strong>rapping</strong>, rapping at my chamber door.</span>
+      </p>
+    </div>
+    
+    <!-- Decorative SVG accent -->
+    <svg class="accent-flourish left" viewBox="0 0 100 200">
+      <path class="flourish-path" d="M80,0 Q20,50 80,100 Q20,150 80,200" fill="none"/>
+    </svg>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 3: THE LIBRARY - IMAGE PARALLAX
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="parallax-section" id="library">
+    <div class="parallax-bg" style="background-image: url('library.png');"></div>
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content">
+      <blockquote class="featured-quote">
+        <span class="quote-mark">"</span>
+        <span class="quote-text typewriter" id="quoteText">'Tis some visitor,' I muttered, 'tapping at my chamber door—<br>Only this and nothing more.'</span>
+        <span class="quote-mark end">"</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 4: DEEPENING DARKNESS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="story-section dark" id="darkness">
+    <div class="story-block">
+      <div class="verse-number">II</div>
+      <p class="story-text large">
+        <span class="text-reveal">Deep into that <span class="highlight">darkness</span> peering,</span>
+      </p>
+      <p class="story-text">
+        <span class="text-reveal">Long I stood there wondering, fearing,</span>
+      </p>
+      <p class="story-text">
+        <span class="text-reveal">Doubting, dreaming dreams no mortal ever dared to dream before;</span>
+      </p>
+      
+      <div class="dramatic-pause">
+        <span class="pause-dot"></span>
+        <span class="pause-dot"></span>
+        <span class="pause-dot"></span>
+      </div>
+      
+      <p class="story-text whisper">
+        <span class="text-reveal">But the silence was unbroken, and the stillness gave no token,</span>
+      </p>
+      <p class="story-text">
+        <span class="text-reveal">And the only word there spoken was the whispered word,</span>
+      </p>
+      <p class="story-text name-reveal">
+        <span class="lenore-text">"Lenore?"</span>
+      </p>
+    </div>
+    
+    <!-- Animated candle flicker effect -->
+    <div class="candle-glow"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5: THE FOREST - IMAGE PARALLAX
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="parallax-section" id="forest">
+    <div class="parallax-bg" style="background-image: url('landscape.png');"></div>
+    <div class="parallax-overlay mist"></div>
+    <div class="parallax-content">
+      <div class="split-text">
+        <span class="split-line left">This I whispered,</span>
+        <span class="split-line right">and an echo murmured back the word,</span>
+      </div>
+      <div class="echo-text">
+        <span class="echo" data-delay="0">"Lenore!"</span>
+        <span class="echo" data-delay="0.3">"Lenore..."</span>
+        <span class="echo" data-delay="0.6">"Lenore..."</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 6: THE REVELATION
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="story-section revelation" id="revelation">
+    <div class="story-block center">
+      <div class="verse-number">III</div>
+      
+      <p class="story-text large">
+        <span class="text-reveal">Then, methought, the air grew denser,</span>
+      </p>
+      <p class="story-text">
+        <span class="text-reveal">perfumed from an unseen censer</span>
+      </p>
+      
+      <div class="raven-silhouette">
+        <svg viewBox="0 0 200 100" class="raven-svg">
+          <path class="raven-path" d="M30,80 Q50,60 70,70 Q90,50 110,60 Q130,40 150,55 Q170,45 180,50 L170,60 Q150,55 140,65 Q120,55 100,70 Q80,60 60,75 Q40,70 30,80 Z"/>
+        </svg>
+      </div>
+      
+      <p class="story-text large dramatic">
+        <span class="text-reveal">Quoth the Raven,</span>
+      </p>
+      
+      <h2 class="nevermore">
+        <span class="never">Never</span><span class="more">more.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 7: FINALE / CTA
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="finale" id="finale">
+    <div class="finale-content">
+      <p class="finale-verse">
+        And the Raven, never flitting, still is sitting, <em>still</em> is sitting<br>
+        On the pallid bust of Pallas just above my chamber door;
+      </p>
+      
+      <div class="finale-cta">
+        <h3 class="cta-heading">Begin Your Own Tale</h3>
+        <p class="cta-subtext">Create immersive storytelling experiences with this template</p>
+        <button class="cta-btn primary">
+          <span>Clone Template</span>
+        </button>
+        <a href="https://github.com/MarquisdeMayfair/animated_storytelling_landing_page" class="github-link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <p>Animated Storytelling Template • Inspired by <a href="https://wabi.ai/#waitlist">Wabi.ai</a></p>
+      <p class="footer-note">Replace images and text to create your own narrative experience</p>
+    </footer>
+  </section>
+
+  <script src="animations.js"></script>
+</body>
+</html>

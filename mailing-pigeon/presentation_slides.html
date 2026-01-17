@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MailingPigeon Presentation</title>
+  <style>
+    @page {
+      size: 10in 7.5in;
+      margin: 0;
+    }
+    
+    body {
+      font-family: 'Playfair Display', Georgia, serif;
+      background: #faf8f3;
+      color: #3d2817;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .slide {
+      width: 10in;
+      height: 7.5in;
+      page-break-after: always;
+      position: relative;
+      padding: 0.5in;
+      box-sizing: border-box;
+      background: #faf8f3;
+    }
+    
+    .slide-title {
+      font-size: 44pt;
+      font-weight: bold;
+      color: #3d2817;
+      margin-bottom: 0.3in;
+      line-height: 1.2;
+    }
+    
+    .slide-text {
+      font-size: 18pt;
+      color: #5c4033;
+      line-height: 1.6;
+      margin-bottom: 0.2in;
+    }
+    
+    .slide-image {
+      max-width: 3in;
+      max-height: 4in;
+      object-fit: contain;
+      margin: 0.2in 0;
+    }
+    
+    .slide-image-right {
+      position: absolute;
+      right: 0.5in;
+      top: 1.5in;
+    }
+    
+    .slide-image-center {
+      display: block;
+      margin: 0.3in auto;
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.2in;
+      margin-top: 0.3in;
+    }
+    
+    .card {
+      background: #f5f1e8;
+      border: 3px solid #8b6f47;
+      border-radius: 8px;
+      padding: 0.2in;
+      text-align: center;
+    }
+    
+    .card-icon {
+      font-size: 36pt;
+      margin-bottom: 0.1in;
+    }
+    
+    .card-title {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #3d2817;
+      margin-bottom: 0.1in;
+    }
+    
+    .card-text {
+      font-size: 14pt;
+      color: #8b6f47;
+    }
+    
+    .emphasis {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    
+    .highlight {
+      color: #1e3a5f;
+    }
+    
+    @media print {
+      .slide {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1: Hero -->
+<div class="slide" style="background-image: url('ww1 image.png'); background-size: cover; background-position: center;">
+  <div style="background: rgba(250, 248, 243, 0.85); padding: 0.5in; border-radius: 8px;">
+    <div class="slide-title" style="text-align: center; font-size: 36pt;">CLASSIFIED</div>
+    <div class="slide-title" style="text-align: center; margin-top: 0.5in;">
+      The mission was<br>impossible...
+    </div>
+    <div class="slide-text" style="text-align: center; font-style: italic; margin-top: 0.3in;">
+      ...but the message had to get through!
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2: Mission -->
+<div class="slide">
+  <div class="slide-title">The Mission</div>
+  <div class="slide-text">The sky was torn open by gunfire.</div>
+  <div class="slide-text">The ground was chaos.</div>
+  <div class="slide-text emphasis">And still, the pigeon flew.</div>
+  <img src="ww1 image.png" alt="WW1 battlefield" class="slide-image slide-image-center" style="max-width: 6in; margin-top: 0.3in;">
+</div>
+
+<!-- Slide 3: Cher Ami -->
+<div class="slide">
+  <div class="slide-title" style="text-align: center;">Cher Ami</div>
+  <div style="text-align: center;">
+    <img src="Cher Ami Photo vintage.png" alt="Cher Ami" class="slide-image slide-image-center" style="max-width: 4in; border-radius: 50%;">
+    <div class="slide-text" style="margin-top: 0.2in;">Mailing Pigeon No. 69-80085</div>
+  </div>
+  <div class="slide-text" style="margin-top: 0.3in;">Cher Ami was released into smoke and noise with a note tied to his leg.</div>
+  <div class="slide-text">No armour. No escort. No second chance.</div>
+  <div class="slide-text">Just instinct, duty, and an unbreakable will to deliver.</div>
+</div>
+
+<!-- Slide 4: Injuries -->
+<div class="slide">
+  <div class="slide-title">The Injuries</div>
+  <div class="slide-text">✗ He was shot.</div>
+  <div class="slide-text">✗ Blinded in one eye.</div>
+  <div class="slide-text">✗ A leg nearly gone.</div>
+  <div class="slide-text emphasis" style="text-align: center; margin-top: 0.5in; font-size: 32pt;">
+    He flew anyway.
+  </div>
+</div>
+
+<!-- Slide 5: Hospital -->
+<div class="slide">
+  <img src="hospital.png" alt="Cher Ami in hospital" class="slide-image slide-image-center" style="max-width: 6in;">
+  <div class="slide-text" style="text-align: center; margin-top: 0.3in;">Despite his injuries,</div>
+  <div class="slide-text emphasis" style="text-align: center; font-size: 28pt;">he delivered the message.</div>
+</div>
+
+<!-- Slide 6: Reason -->
+<div class="slide">
+  <div class="slide-title" style="text-align: center;">The Reason</div>
+  <div class="slide-text" style="text-align: center; font-size: 24pt; margin-top: 2in;">
+    Because the message mattered.
+  </div>
+  <div class="slide-text" style="text-align: center; font-size: 24pt; margin-top: 0.5in;">
+    Because stopping was never an option.
+  </div>
+</div>
+
+<!-- Slide 7: Transition -->
+<div class="slide">
+  <div class="slide-title">Most Email Systems</div>
+  <div class="slide-text" style="font-size: 22pt; margin-top: 0.5in;">
+    Most email systems <span style="text-decoration: line-through;">quit</span> <span style="color: #c41e3a;">stall</span> far earlier than that.
+  </div>
+  <div class="slide-text" style="margin-top: 0.4in;">✗ They fail at prospecting.</div>
+  <div class="slide-text">✗ They stumble on deliverability.</div>
+  <div class="slide-text">✗ They burn domains, trip spam filters, wreck reputations, then quietly blame the user.</div>
+</div>
+
+<!-- Slide 8: Product Intro -->
+<div class="slide">
+  <div style="text-align: center;">
+    <img src="wireless.png" alt="Radio" style="max-width: 2in; display: inline-block; vertical-align: middle;">
+    <img src="dial large.png" alt="Dial" style="max-width: 1in; display: inline-block; vertical-align: middle; margin-left: 0.2in;">
+  </div>
+  <div class="slide-title" style="text-align: center; margin-top: 0.3in;">MailingPigeon</div>
+  <div class="slide-text" style="text-align: center; font-size: 22pt; margin-top: 0.3in;">
+    MailingPigeon was built on a different idea.
+  </div>
+  <div class="slide-text" style="margin-top: 0.4in;">That delivery is a mission.</div>
+  <div class="slide-text">That messages deserve to arrive.</div>
+  <div class="slide-text highlight emphasis">That giving up halfway is not acceptable.</div>
+</div>
+
+<!-- Slide 9: Capabilities Title -->
+<div class="slide">
+  <div class="slide-title" style="text-align: center;">
+    MailingPigeon does not just <span style="text-decoration: line-through;">send</span> <span style="color: #1e3a5f;">deliver</span> emails.
+  </div>
+</div>
+
+<!-- Slide 10: Capabilities Grid -->
+<div class="slide">
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <div class="card-title">It scouts.</div>
+      <div class="card-text">Finds the right prospects.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <div class="card-title">It builds.</div>
+      <div class="card-text">Clean, intelligent lists.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛤️</div>
+      <div class="card-title">It prepares.</div>
+      <div class="card-text">Warms domains. Warms inboxes.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📧</div>
+      <div class="card-title">It carries.</div>
+      <div class="card-text">Every kind of message.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">👁️</div>
+      <div class="card-title">It watches.</div>
+      <div class="card-text">Open rates. Replies. Bounces.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔄</div>
+      <div class="card-title">It adapts.</div>
+      <div class="card-text">When conditions change.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 11: Comparison -->
+<div class="slide">
+  <div class="slide-title">Like Cher Ami</div>
+  <div class="slide-text" style="font-size: 22pt; margin-top: 0.3in;">
+    Like Cher Ami, we expect resistance.
+  </div>
+  <div class="slide-text" style="margin-top: 0.4in;">Firewalls. Filters. Remembered mistakes from systems that came before.</div>
+  <div class="slide-text" style="margin-top: 0.4in;">We don't panic.</div>
+  <div class="slide-text">We don't rush.</div>
+  <div class="slide-text">We don't brute force.</div>
+  <div class="slide-text emphasis" style="margin-top: 0.3in;">We fly smarter. Lower when needed. Higher when safe.</div>
+</div>
+
+<!-- Slide 12: Finish -->
+<div class="slide">
+  <div class="slide-title" style="text-align: center;">Finish the job.</div>
+  <div class="slide-text" style="text-align: center; margin-top: 0.5in;">
+    MailingPigeon exists for teams who think the same way.
+  </div>
+  <div class="slide-text" style="margin-top: 0.4in;">🚀 Founders who cannot afford burned domains.</div>
+  <div class="slide-text">💼 Sales teams tired of half-working tools.</div>
+  <div class="slide-text">⚙️ Operators who want the entire email lifecycle handled end to end.</div>
+  <div class="slide-text emphasis" style="text-align: center; margin-top: 0.5in; font-size: 24pt;">
+    No excuses.<br>Just delivery.
+  </div>
+</div>
+
+<!-- Slide 13: Finale -->
+<div class="slide">
+  <div class="slide-title" style="text-align: center;">The Message Must Get Through</div>
+  <div class="slide-text" style="text-align: center; font-size: 22pt; margin-top: 1in;">
+    Because email is not about sending.
+  </div>
+  <div class="slide-text highlight emphasis" style="text-align: center; font-size: 32pt; margin-top: 0.3in;">
+    It is about arriving.
+  </div>
+  <div class="slide-text" style="text-align: center; margin-top: 1in;">
+    We salute you, Cher Ami,<br>
+    and like you,<br>
+    <span class="emphasis">MailingPigeon doesn't stop until the message gets through.</span>
+  </div>
+</div>
+
+<!-- Slide 14: Logo -->
+<div class="slide">
+  <div style="text-align: center; margin-top: 2in;">
+    <img src="Mailing Pigeon Logo.png" alt="MailingPigeon Logo" style="max-width: 4in;">
+  </div>
+  <div class="slide-text" style="text-align: center; margin-top: 0.5in;">
+    MailingPigeon • The Message Must Get Through
+  </div>
+</div>
+
+</body>
+</html>
