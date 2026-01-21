@@ -1,0 +1,19 @@
+# Netlify Configuration
+
+[build]
+  publish = "."
+
+# Form notifications - sends submissions to email
+[[plugins]]
+  package = "@netlify/plugin-emails"
+
+# Form handling
+[build.processing]
+  skip_processing = false
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"

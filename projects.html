@@ -6,6 +6,15 @@
   <title>Current Projects | CreatorFunds</title>
   <meta name="description" content="Explore active CreatorFunds campaigns. Apply now to collaborate with brands, films, and products looking for authentic creator voices.">
   
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6Q54RCY8F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G6Q54RCY8F');
+  </script>
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -666,7 +675,7 @@
         </div>
         
         <div class="featured-cta">
-          <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/" target="_blank" class="btn btn-amazon">
+          <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/0MPMK7C805L3K0QK3RIS2KHZI2" target="_blank" class="btn btn-amazon" id="prime-video-link" onclick="gtag('event', 'click', {event_category: 'TNS Documentary', event_label: 'Prime Video Link', value: 1});">
             Watch on Prime Video →
           </a>
           <a href="mailto:apply@creatorfunds.org?subject=TNS%20Documentary%20-%20Creator%20Application&body=I'd%20like%20to%20apply%20to%20review%20The%20New%20Saints%20documentary.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-outline">
@@ -761,12 +770,19 @@
   </footer>
 
   <script>
-    // Video play functionality
+    // Video play functionality with GA tracking
     const thumbnail = document.getElementById('video-thumbnail');
     const playButton = document.getElementById('play-button');
     const videoContainer = document.getElementById('video-container');
     
     function playVideo() {
+      // Track video play event in GA
+      gtag('event', 'video_play', {
+        event_category: 'TNS Documentary',
+        event_label: 'Trailer Watch',
+        value: 1
+      });
+      
       videoContainer.innerHTML = `
         <iframe 
           src="https://www.youtube.com/embed/9XquSVwWUZg?autoplay=1&rel=0" 
