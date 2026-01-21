@@ -185,7 +185,7 @@
     .featured-badge {
       position: absolute;
       top: 2rem;
-      left: 2rem;
+      right: 2rem;
       background: var(--coral);
       color: white;
       padding: 0.5rem 1.5rem;
@@ -209,11 +209,11 @@
       align-items: center;
       justify-content: center;
       min-height: 500px;
-      order: 2;
+      order: 1;
     }
     
     .featured-info {
-      order: 1;
+      order: 2;
     }
     
     .featured-video-wrapper {
@@ -704,11 +704,10 @@
       <div class="featured-media">
         <div class="featured-video-wrapper" id="video-container">
           <img 
-            src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/9ef9d09b5e5a4c8e9f4e4e0c9b7c1d3e6a5f4b3c2d1e0f9a8b7c6d5e4f3a2b1c._UR1920,1080_SX720_FMwebp_.jpg" 
+            src="https://img.youtube.com/vi/9XquSVwWUZg/maxresdefault.jpg" 
             alt="The New Saints Documentary" 
             class="featured-thumbnail"
             id="video-thumbnail"
-            onerror="this.style.background='linear-gradient(135deg, #0a1628 0%, #1a2744 100%)'; this.style.display='flex'; this.innerHTML='<span style=&quot;color:white;font-family:Syne;font-size:2rem;font-weight:800&quot;>TNS</span>'"
           >
           <div class="play-button" id="play-button"></div>
         </div>
