@@ -3,214 +3,427 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Raven | An Animated Story</title>
+  <title>CreatorFunds — Here's to the Creators</title>
   
-  <!-- Fonts -->
+  <!-- Fonts - Bold modern typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
   
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   
-  <!-- Ambient particles -->
-  <div class="particles" id="particles"></div>
+  <!-- Animated gradient mesh background -->
+  <div class="gradient-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="gradient-orb orb-4"></div>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 1: HERO - THE RAVEN
+       SECTION 1: HERO - THE CREATORS
   ═══════════════════════════════════════════════════════════════════ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg" style="background-image: url('raven background.png');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow">Edgar Allan Poe</span>
-      <h1 class="hero-title">
-        <span class="title-line" data-delay="0">Once upon</span>
-        <span class="title-line" data-delay="0.2">a <em>midnight</em></span>
-        <span class="title-line title-accent" data-delay="0.4">dreary</span>
-      </h1>
-      <p class="hero-subtitle">An animated journey through darkness and memory</p>
-      <button class="cta-btn" id="enterBtn">
-        <span>Enter the Tale</span>
-        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </button>
-    </div>
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 2: OPENING VERSE
-  ═══════════════════════════════════════════════════════════════════ -->
-  <section class="story-section" id="opening">
-    <div class="story-block">
-      <div class="verse-number">I</div>
-      <p class="story-text large">
-        <span class="text-reveal">While I pondered, <em>weak</em> and <em>weary</em>,</span>
-      </p>
-      <p class="story-text">
-        <span class="text-reveal">Over many a quaint and curious volume of forgotten lore—</span>
-      </p>
-      <div class="cross-text-container">
-        <span class="cross-text">
-          While I nodded, nearly sleeping
-          <svg class="cross-line" viewBox="0 0 100 10" preserveAspectRatio="none">
-            <path d="M0,5 Q25,2 50,6 Q75,10 100,4" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="replacement-text">suddenly there came a tapping</span>
+  <section class="section hero" id="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="badge-icon">◆</span>
+        <span>For Creators. By Believers.</span>
       </div>
-      <p class="story-text">
-        <span class="text-reveal">As of some one gently <strong>rapping</strong>, rapping at my chamber door.</span>
-      </p>
+      <h1 class="hero-title">
+        <span class="word-animate">Here's</span>
+        <span class="word-animate">to</span>
+        <span class="word-animate">the</span>
+        <span class="word-animate highlight-word">creators.</span>
+      </h1>
+      <div class="scroll-cue">
+        <div class="scroll-line"></div>
+      </div>
     </div>
-    
-    <!-- Decorative SVG accent -->
-    <svg class="accent-flourish left" viewBox="0 0 100 200">
-      <path class="flourish-path" d="M80,0 Q20,50 80,100 Q20,150 80,200" fill="none"/>
-    </svg>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 3: THE LIBRARY - IMAGE PARALLAX
+       SECTION 2: THE DREAMERS
   ═══════════════════════════════════════════════════════════════════ -->
-  <section class="parallax-section" id="library">
-    <div class="parallax-bg" style="background-image: url('library.png');"></div>
-    <div class="parallax-overlay"></div>
-    <div class="parallax-content">
-      <blockquote class="featured-quote">
-        <span class="quote-mark">"</span>
-        <span class="quote-text typewriter" id="quoteText">'Tis some visitor,' I muttered, 'tapping at my chamber door—<br>Only this and nothing more.'</span>
-        <span class="quote-mark end">"</span>
+  <section class="section" id="dreamers">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-block">
+          <p class="large-text">
+            <span class="line-reveal">The <span class="text-gradient">dreamers</span>.</span>
+            <span class="line-reveal">The <span class="text-gradient">storytellers</span>.</span>
+            <span class="line-reveal">The <span class="text-gradient">underdogs</span>.</span>
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame" data-parallax="0.1">
+            <img src="creator-spark.png" alt="Creator spark - igniting potential" class="frame-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 3: THE OVERLOOKED
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark" id="overlooked">
+    <div class="container">
+      <div class="centered-text">
+        <p class="display-text">
+          <span class="char-reveal">The ones with 1K followers</span>
+        </p>
+        <p class="display-text">
+          <span class="char-reveal">and <em>1 million ideas</em>.</span>
+        </p>
+      </div>
+      
+      <!-- Animated engagement icons -->
+      <div class="shapes-container">
+        <div class="shape heart-shape" data-speed="0.5"></div>
+        <div class="shape comment-shape" data-speed="0.3"></div>
+        <div class="shape share-shape" data-speed="0.7"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 4: THE PROBLEM
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="problem">
+    <div class="container narrow">
+      <div class="inline-text-block">
+        <p class="body-text fade-up">The industry said: <span class="strike-through">you need a million followers first</span>.</p>
+        <p class="body-text fade-up">One brand. One creator. <span class="text-gradient">One voice</span>.</p>
+        <p class="body-text fade-up">But stories were never meant to be told alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 5: THE FUND CONCEPT
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section gradient-section" id="fund">
+    <div class="container">
+      <div class="split-layout reverse">
+        <div class="text-block">
+          <p class="large-text stagger-words">
+            So we built a <span class="underline-animate">fund</span>.
+          </p>
+          <p class="body-text fade-up" style="margin-top: 2rem;">
+            A pocket full of lucky breaks.
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame fund-frame" data-parallax="0.15">
+            <img src="creator-fund.png" alt="Creator Fund - financing dreams" class="frame-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 6: THE TAPESTRY
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark" id="tapestry">
+    <div class="container">
+      <div class="centered-text">
+        <p class="display-text typewriter" id="typewriter-text">
+          Not one creator. Not one voice. A tapestry.
+        </p>
+        <div class="cursor-blink"></div>
+      </div>
+      <p class="body-text fade-up" style="text-align: center; margin-top: 3rem; color: var(--gray);">
+        A canvas where every perspective matters.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 7: THE PARTY
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="party">
+    <div class="container">
+      <blockquote class="big-quote">
+        <span class="quote-word" data-delay="0">A</span>
+        <span class="quote-word" data-delay="0.1">party</span>
+        <span class="quote-word" data-delay="0.2">where</span>
+        <span class="quote-word highlight" data-delay="0.3">everyone</span>
+        <span class="quote-word" data-delay="0.4">is</span>
+        <span class="quote-word highlight" data-delay="0.5">equal</span>
+        <br>
+        <span class="quote-word" data-delay="0.7">regardless</span>
+        <span class="quote-word" data-delay="0.8">of</span>
+        <span class="quote-word" data-delay="0.9">follower</span>
+        <span class="quote-word" data-delay="1.0">count.</span>
       </blockquote>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 4: DEEPENING DARKNESS
+       SECTION 8: HOW IT WORKS - COLLECTIVE
   ═══════════════════════════════════════════════════════════════════ -->
-  <section class="story-section dark" id="darkness">
-    <div class="story-block">
-      <div class="verse-number">II</div>
-      <p class="story-text large">
-        <span class="text-reveal">Deep into that <span class="highlight">darkness</span> peering,</span>
-      </p>
-      <p class="story-text">
-        <span class="text-reveal">Long I stood there wondering, fearing,</span>
-      </p>
-      <p class="story-text">
-        <span class="text-reveal">Doubting, dreaming dreams no mortal ever dared to dream before;</span>
-      </p>
-      
-      <div class="dramatic-pause">
-        <span class="pause-dot"></span>
-        <span class="pause-dot"></span>
-        <span class="pause-dot"></span>
-      </div>
-      
-      <p class="story-text whisper">
-        <span class="text-reveal">But the silence was unbroken, and the stillness gave no token,</span>
-      </p>
-      <p class="story-text">
-        <span class="text-reveal">And the only word there spoken was the whispered word,</span>
-      </p>
-      <p class="story-text name-reveal">
-        <span class="lenore-text">"Lenore?"</span>
-      </p>
-    </div>
-    
-    <!-- Animated candle flicker effect -->
-    <div class="candle-glow"></div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 5: THE FOREST - IMAGE PARALLAX
-  ═══════════════════════════════════════════════════════════════════ -->
-  <section class="parallax-section" id="forest">
-    <div class="parallax-bg" style="background-image: url('landscape.png');"></div>
-    <div class="parallax-overlay mist"></div>
-    <div class="parallax-content">
-      <div class="split-text">
-        <span class="split-line left">This I whispered,</span>
-        <span class="split-line right">and an echo murmured back the word,</span>
-      </div>
-      <div class="echo-text">
-        <span class="echo" data-delay="0">"Lenore!"</span>
-        <span class="echo" data-delay="0.3">"Lenore..."</span>
-        <span class="echo" data-delay="0.6">"Lenore..."</span>
+  <section class="section gradient-section" id="collective">
+    <div class="container">
+      <div class="split-layout">
+        <div class="text-block">
+          <p class="large-text">
+            <span class="line-reveal">Brands meet <span class="text-gradient">collectives</span>.</span>
+            <span class="line-reveal">Varied voices.</span>
+            <span class="line-reveal">One powerful story.</span>
+          </p>
+          <p class="body-text fade-up" style="margin-top: 2rem;">
+            Multiple perspectives create something more authentic. More accessible. More human.
+          </p>
+        </div>
+        <div class="image-block">
+          <div class="image-frame" data-parallax="0.2">
+            <img src="creator-collective.png" alt="Creator collective - many voices" class="frame-image">
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 6: THE REVELATION
+       SECTION 9: AMPLIFY EACH OTHER
   ═══════════════════════════════════════════════════════════════════ -->
-  <section class="story-section revelation" id="revelation">
-    <div class="story-block center">
-      <div class="verse-number">III</div>
-      
-      <p class="story-text large">
-        <span class="text-reveal">Then, methought, the air grew denser,</span>
+  <section class="section dark" id="amplify">
+    <div class="container narrow">
+      <p class="statement-text">
+        <span class="word-pop">Creators</span>
+        <span class="word-pop">make</span>
+        <span class="word-pop">the</span>
+        <span class="word-pop highlight-bg">stories.</span>
+        <br>
+        <span class="word-pop">We</span>
+        <span class="word-pop highlight-bg">amplify</span>
+        <span class="word-pop">each</span>
+        <span class="word-pop">other.</span>
       </p>
-      <p class="story-text">
-        <span class="text-reveal">perfumed from an unseen censer</span>
-      </p>
-      
-      <div class="raven-silhouette">
-        <svg viewBox="0 0 200 100" class="raven-svg">
-          <path class="raven-path" d="M30,80 Q50,60 70,70 Q90,50 110,60 Q130,40 150,55 Q170,45 180,50 L170,60 Q150,55 140,65 Q120,55 100,70 Q80,60 60,75 Q40,70 30,80 Z"/>
-        </svg>
-      </div>
-      
-      <p class="story-text large dramatic">
-        <span class="text-reveal">Quoth the Raven,</span>
-      </p>
-      
-      <h2 class="nevermore">
-        <span class="never">Never</span><span class="more">more.</span>
-      </h2>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SECTION 7: FINALE / CTA
+       SECTION 10: STAT BLOCK - 2026 NUMBERS
   ═══════════════════════════════════════════════════════════════════ -->
-  <section class="finale" id="finale">
-    <div class="finale-content">
-      <p class="finale-verse">
-        And the Raven, never flitting, still is sitting, <em>still</em> is sitting<br>
-        On the pallid bust of Pallas just above my chamber door;
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat-card" data-delay="0">
+          <span class="stat-number counter" data-target="50">0</span>
+          <span class="stat-suffix">M+</span>
+          <p class="stat-label">Creators worldwide in 2026</p>
+        </div>
+        <div class="stat-card" data-delay="0.2">
+          <span class="stat-number">$</span>
+          <span class="stat-number counter" data-target="480">0</span>
+          <span class="stat-suffix">B</span>
+          <p class="stat-label">Creator economy value</p>
+        </div>
+        <div class="stat-card" data-delay="0.4">
+          <span class="stat-number counter" data-target="72">0</span>
+          <span class="stat-suffix">%</span>
+          <p class="stat-label">Gen Z trust creators over ads</p>
+        </div>
+      </div>
+      <p class="stat-source fade-up">Source: Goldman Sachs Creator Economy Report 2026</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 11: THE BRANDS
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark" id="brands">
+    <div class="container">
+      <div class="centered-text">
+        <p class="large-text fade-up">
+          Amazon Prime. Apple TV. Premier League. Nike. Notion.
+        </p>
+      </div>
+      <p class="body-text fade-up" style="text-align: center; margin-top: 2rem; color: var(--gray);">
+        These brands don't want one voice.<br>
+        They want the <span class="text-gradient">full chorus</span>.
       </p>
-      
-      <div class="finale-cta">
-        <h3 class="cta-heading">Begin Your Own Tale</h3>
-        <p class="cta-subtext">Create immersive storytelling experiences with this template</p>
-        <button class="cta-btn primary">
-          <span>Clone Template</span>
-        </button>
-        <a href="https://github.com/MarquisdeMayfair/animated_storytelling_landing_page" class="github-link">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          View on GitHub
-        </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 12: THE COMPARISON
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="comparison-block">
+        <div class="compare-left">
+          <p class="compare-text">
+            Others see <span class="strikeout">one creator, one deal</span>.
+          </p>
+        </div>
+        <div class="compare-divider">
+          <div class="divider-line"></div>
+        </div>
+        <div class="compare-right">
+          <p class="compare-text">
+            We see a <span class="text-gradient">movement</span>.
+          </p>
+        </div>
       </div>
     </div>
-    
-    <footer class="footer">
-      <p>Animated Storytelling Template • Inspired by <a href="https://wabi.ai/#waitlist">Wabi.ai</a></p>
-      <p class="footer-note">Replace images and text to create your own narrative experience</p>
-    </footer>
   </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 13: WORLDWIDE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section gradient-section" id="global">
+    <div class="container narrow">
+      <p class="statement-text">
+        <span class="word-pop">From</span>
+        <span class="word-pop">São</span>
+        <span class="word-pop">Paulo</span>
+        <span class="word-pop">to</span>
+        <span class="word-pop highlight-bg">Seoul.</span>
+        <br>
+        <span class="word-pop">Lagos</span>
+        <span class="word-pop">to</span>
+        <span class="word-pop highlight-bg">London.</span>
+      </p>
+      <p class="body-text fade-up" style="text-align: center; margin-top: 2rem;">
+        Every thread in the tapestry matters.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 14: SOCIAL PROOF TICKER
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark ticker-section" id="proof">
+    <div class="container">
+      <p class="body-text fade-up" style="text-align: center; margin-bottom: 2rem;">
+        What creators are saying on X
+      </p>
+      <div class="ticker-wrapper">
+        <div class="ticker">
+          <div class="ticker-item">"Finally, I'm part of something bigger" — @mikecreates</div>
+          <div class="ticker-item">"Got my first brand deal at 800 followers" — @ariathestoryteller</div>
+          <div class="ticker-item">"The collab with 12 other creators? Unreal." — @techwithtom</div>
+          <div class="ticker-item">"We amplify each other. That's the difference." — @jasminewrites</div>
+          <div class="ticker-item">"Not an agency. A community." — @dancingdave</div>
+          <div class="ticker-item">"Finally, I'm part of something bigger" — @mikecreates</div>
+          <div class="ticker-item">"Got my first brand deal at 800 followers" — @ariathestoryteller</div>
+          <div class="ticker-item">"The collab with 12 other creators? Unreal." — @techwithtom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 15: FOR WHO
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="audience">
+    <div class="container">
+      <div class="two-column-grid">
+        <div class="column-card creators-card">
+          <div class="card-icon">🎬</div>
+          <h3 class="card-title">For Creators</h3>
+          <ul class="card-list">
+            <li class="fade-up">Join campaigns as part of a collective</li>
+            <li class="fade-up">Fund backing — size doesn't matter</li>
+            <li class="fade-up">Collaborate, cross-promote, grow together</li>
+            <li class="fade-up">Your voice adds to the canvas</li>
+          </ul>
+        </div>
+        <div class="column-card brands-card">
+          <div class="card-icon">🏢</div>
+          <h3 class="card-title">For Brands</h3>
+          <ul class="card-list">
+            <li class="fade-up">Diverse creator groups, not single voices</li>
+            <li class="fade-up">Stories told from multiple perspectives</li>
+            <li class="fade-up">Authentic reach across communities</li>
+            <li class="fade-up">A tapestry, not a billboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 16: FINALE
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section dark finale-section" id="finale">
+    <div class="container">
+      <div class="finale-text">
+        <p class="display-text line-by-line">
+          <span class="line">Because when creators come together,</span>
+          <span class="line">they don't just <em>tell stories</em>—</span>
+        </p>
+        <p class="display-text finale-reveal">
+          <span class="finale-word">they change</span>
+          <span class="finale-highlight">culture.</span>
+        </p>
+      </div>
+      
+      <!-- CreatorFunds Logo -->
+      <div class="logo-reveal">
+        <div class="cf-logo">
+          <span class="logo-text">Creator</span><span class="logo-text highlight">Funds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       SECTION 17: CTA
+  ═══════════════════════════════════════════════════════════════════ -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-block">
+        <h2 class="cta-title fade-up">Ready to be part of the tapestry?</h2>
+        <div class="cta-buttons">
+          <a href="#" class="cta-btn primary fade-up">I'm a Creator</a>
+          <a href="#" class="cta-btn secondary fade-up">I'm a Brand</a>
+        </div>
+        <p class="cta-note fade-up">Join 12,000+ creators and 400+ brands weaving something new.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="cf-logo-small">
+            <span>Creator</span><span class="highlight">Funds</span>
+          </div>
+          <p class="footer-tagline">Where voices become movements.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Creators</a>
+          <a href="#">Brands</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter/X">𝕏</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+      <p class="footer-note">© 2026 CreatorFunds.org • All rights reserved</p>
+    </div>
+  </footer>
 
   <script src="animations.js"></script>
 </body>

@@ -1,282 +1,399 @@
 /**
  * ═══════════════════════════════════════════════════════════════════
- * ANIMATED STORYTELLING PAGE - GSAP ANIMATIONS
- * Inspired by wabi.ai narrative style
+ * CREATORFUNDS - SCROLL ANIMATIONS
+ * "Here's to the Creators" storytelling experience
  * ═══════════════════════════════════════════════════════════════════
  */
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-// ─────────────────────────────────────────────────────────────────
-// UTILITY: Check for reduced motion preference
-// ─────────────────────────────────────────────────────────────────
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-// ─────────────────────────────────────────────────────────────────
-// AMBIENT PARTICLES
-// ─────────────────────────────────────────────────────────────────
-function createParticles() {
-  if (prefersReducedMotion) return;
-  
-  const container = document.getElementById('particles');
-  const particleCount = 30;
-  
-  for (let i = 0; i < particleCount; i++) {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.left = `${Math.random() * 100}%`;
-    particle.style.animationDelay = `${Math.random() * 15}s`;
-    particle.style.animationDuration = `${15 + Math.random() * 10}s`;
-    particle.style.width = `${1 + Math.random() * 2}px`;
-    particle.style.height = particle.style.width;
-    container.appendChild(particle);
-  }
-}
 
 // ─────────────────────────────────────────────────────────────────
 // HERO ANIMATIONS
 // ─────────────────────────────────────────────────────────────────
-function initHeroAnimations() {
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+function initHero() {
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
   
-  // Animate hero background
-  tl.to('.hero-bg', {
-    scale: 1,
-    duration: 2,
-    ease: 'power2.out'
-  }, 0);
-  
-  // Eyebrow
-  tl.to('.hero-eyebrow', {
+  // Badge
+  tl.to('.hero-badge', {
     opacity: 1,
     y: 0,
+    duration: 1.2
+  }, 0.4);
+  
+  // Words stagger with elastic feel
+  tl.to('.word-animate', {
+    opacity: 1,
+    y: 0,
+    duration: 1.4,
+    stagger: 0.12,
+    ease: 'power4.out'
+  }, 0.6);
+  
+  // Scroll cue
+  tl.to('.scroll-cue', {
+    opacity: 1,
     duration: 1
-  }, 0.5);
-  
-  // Title lines with stagger
-  tl.to('.title-line', {
-    opacity: 1,
-    y: 0,
-    duration: 1.2,
-    stagger: 0.2
-  }, 0.7);
-  
-  // Subtitle
-  tl.to('.hero-subtitle', {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
-  }, 1.5);
-  
-  // CTA Button
-  tl.to('.cta-btn', {
-    opacity: 1,
-    y: 0,
-    duration: 0.8
   }, 1.8);
-  
-  // Scroll indicator
-  tl.to('.scroll-indicator', {
-    opacity: 0.7,
-    duration: 1
-  }, 2.2);
-  
-  // Parallax effect on hero background
-  if (!prefersReducedMotion) {
-    gsap.to('.hero-bg', {
-      yPercent: 30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true
-      }
-    });
-  }
 }
 
 // ─────────────────────────────────────────────────────────────────
-// STORY SECTION ANIMATIONS
+// LINE REVEAL ANIMATIONS
 // ─────────────────────────────────────────────────────────────────
-function initStoryAnimations() {
-  // Verse numbers
-  gsap.utils.toArray('.verse-number').forEach(verse => {
-    gsap.to(verse, {
-      opacity: 0.15,
-      duration: 1,
-      ease: 'power2.out',
+function initLineReveals() {
+  gsap.utils.toArray('.line-reveal').forEach((line, i) => {
+    gsap.to(line, {
+      opacity: 1,
+      y: 0,
+      duration: 1.1,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: verse,
-        start: 'top 80%',
+        trigger: line,
+        start: 'top 85%',
         toggleActions: 'play none none reverse'
-      }
+      },
+      delay: i * 0.18
     });
   });
-  
-  // Text reveals
-  gsap.utils.toArray('.text-reveal').forEach((text, i) => {
-    gsap.to(text, {
+}
+
+// ─────────────────────────────────────────────────────────────────
+// CHARACTER BY CHARACTER REVEAL
+// ─────────────────────────────────────────────────────────────────
+function initCharReveals() {
+  gsap.utils.toArray('.char-reveal').forEach(element => {
+    const text = element.textContent;
+    element.textContent = '';
+    
+    const chars = text.split('').map(char => {
+      const span = document.createElement('span');
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      span.style.display = 'inline-block';
+      span.style.opacity = '0';
+      span.style.transform = 'translateY(25px)';
+      element.appendChild(span);
+      return span;
+    });
+    
+    element.style.opacity = '1';
+    
+    ScrollTrigger.create({
+      trigger: element,
+      start: 'top 80%',
+      onEnter: () => {
+        gsap.to(chars, {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.025,
+          ease: 'power3.out'
+        });
+      },
+      once: true
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// UNDERLINE ANIMATION
+// ─────────────────────────────────────────────────────────────────
+function initUnderlines() {
+  gsap.utils.toArray('.underline-animate').forEach(element => {
+    ScrollTrigger.create({
+      trigger: element,
+      start: 'top 80%',
+      onEnter: () => element.classList.add('is-visible'),
+      onLeaveBack: () => element.classList.remove('is-visible')
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// STRIKE THROUGH ANIMATION
+// ─────────────────────────────────────────────────────────────────
+function initStrikeThrough() {
+  gsap.utils.toArray('.strike-through').forEach(element => {
+    ScrollTrigger.create({
+      trigger: element,
+      start: 'top 80%',
+      onEnter: () => element.classList.add('is-visible'),
+      onLeaveBack: () => element.classList.remove('is-visible')
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// FADE UP ANIMATIONS
+// ─────────────────────────────────────────────────────────────────
+function initFadeUps() {
+  gsap.utils.toArray('.fade-up').forEach(element => {
+    gsap.to(element, {
       opacity: 1,
       y: 0,
       duration: 0.9,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: text,
+        trigger: element,
         start: 'top 85%',
         toggleActions: 'play none none reverse'
-      }
-    });
-  });
-  
-  // Highlight effect
-  gsap.utils.toArray('.highlight').forEach(highlight => {
-    gsap.to(highlight.querySelector('::after') || highlight, {
-      scrollTrigger: {
-        trigger: highlight,
-        start: 'top 80%',
-        onEnter: () => highlight.parentElement?.parentElement?.classList.add('is-visible')
       }
     });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// CROSS-OUT TEXT EFFECT
+// WORD POP ANIMATIONS
 // ─────────────────────────────────────────────────────────────────
-function initCrossOutEffect() {
-  const crossContainers = document.querySelectorAll('.cross-text-container');
+function initWordPops() {
+  const containers = document.querySelectorAll('.statement-text');
   
-  crossContainers.forEach(container => {
-    const crossText = container.querySelector('.cross-text');
-    const crossLine = container.querySelector('.cross-line');
-    const replacement = container.querySelector('.replacement-text');
+  containers.forEach(container => {
+    const words = container.querySelectorAll('.word-pop');
     
-    const tl = gsap.timeline({
+    gsap.to(words, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.65,
+      stagger: 0.09,
+      ease: 'back.out(1.5)',
       scrollTrigger: {
         trigger: container,
         start: 'top 75%',
         toggleActions: 'play none none reverse'
       }
     });
-    
-    // Show original text
-    tl.to(crossText, {
-      opacity: 1,
-      duration: 0.6,
-      ease: 'power2.out'
-    });
-    
-    // Animate the cross-out line
-    tl.to(crossLine, {
-      strokeDashoffset: 0,
-      duration: 0.8,
-      ease: 'power2.inOut'
-    }, '+=0.3');
-    
-    // Fade original text
-    tl.to(crossText, {
-      opacity: 0.4,
-      duration: 0.4
-    }, '-=0.3');
-    
-    // Reveal replacement
-    tl.to(replacement, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      ease: 'power3.out'
-    }, '-=0.2');
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// DECORATIVE FLOURISH ANIMATION
+// QUOTE WORD ANIMATIONS
 // ─────────────────────────────────────────────────────────────────
-function initFlourishAnimations() {
-  gsap.utils.toArray('.flourish-path').forEach(path => {
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      duration: 2,
-      ease: 'power2.inOut',
+function initQuoteWords() {
+  const quoteWords = document.querySelectorAll('.quote-word');
+  
+  quoteWords.forEach(word => {
+    const delay = parseFloat(word.dataset.delay) || 0;
+    
+    gsap.to(word, {
+      opacity: 1,
+      y: 0,
+      duration: 0.75,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: path,
+        trigger: '.big-quote',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+      },
+      delay: delay
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// TYPEWRITER EFFECT
+// ─────────────────────────────────────────────────────────────────
+function initTypewriter() {
+  const element = document.getElementById('typewriter-text');
+  if (!element) return;
+  
+  const originalText = element.textContent;
+  element.textContent = '';
+  
+  let hasPlayed = false;
+  
+  ScrollTrigger.create({
+    trigger: element,
+    start: 'top 75%',
+    onEnter: () => {
+      if (hasPlayed) return;
+      hasPlayed = true;
+      
+      gsap.to(element, {
+        duration: originalText.length * 0.05,
+        text: {
+          value: originalText,
+          delimiter: ''
+        },
+        ease: 'none'
+      });
+    }
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// IMAGE REVEAL ANIMATIONS
+// ─────────────────────────────────────────────────────────────────
+function initImageReveals() {
+  gsap.utils.toArray('.frame-image').forEach(img => {
+    gsap.to(img, {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: img,
         start: 'top 80%',
         toggleActions: 'play none none reverse'
+      },
+      onStart: () => img.classList.add('is-visible')
+    });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// STAT CARDS & COUNTER ANIMATION
+// ─────────────────────────────────────────────────────────────────
+function initStats() {
+  const statCards = document.querySelectorAll('.stat-card');
+  
+  statCards.forEach((card, index) => {
+    const delay = parseFloat(card.dataset.delay) || 0;
+    
+    gsap.to(card, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.stat-grid',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse'
+      },
+      delay: delay
+    });
+  });
+  
+  // Counter animations
+  const counters = document.querySelectorAll('.counter');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.dataset.target);
+    let hasAnimated = false;
+    
+    ScrollTrigger.create({
+      trigger: counter,
+      start: 'top 80%',
+      onEnter: () => {
+        if (hasAnimated) return;
+        hasAnimated = true;
+        
+        gsap.to(counter, {
+          innerHTML: target,
+          duration: 2,
+          ease: 'power2.out',
+          snap: { innerHTML: 1 },
+          onUpdate: function() {
+            counter.textContent = Math.round(counter.innerHTML);
+          }
+        });
       }
     });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// DRAMATIC PAUSE ANIMATION
+// COMPARISON DIVIDER
 // ─────────────────────────────────────────────────────────────────
-function initDramaticPause() {
-  const dots = document.querySelectorAll('.pause-dot');
+function initComparison() {
+  const divider = document.querySelector('.divider-line');
+  if (!divider) return;
   
-  gsap.to(dots, {
-    opacity: 1,
-    duration: 0.5,
-    stagger: 0.3,
-    ease: 'power2.out',
+  gsap.to(divider, {
+    scaleY: 1,
+    scaleX: 1,
+    duration: 0.9,
+    ease: 'power3.out',
     scrollTrigger: {
-      trigger: '.dramatic-pause',
-      start: 'top 80%',
+      trigger: '.comparison-block',
+      start: 'top 70%',
       toggleActions: 'play none none reverse'
     }
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// LENORE NAME REVEAL
+// FINALE ANIMATIONS
 // ─────────────────────────────────────────────────────────────────
-function initLenoreReveal() {
-  const lenore = document.querySelector('.lenore-text');
-  if (!lenore) return;
+function initFinale() {
+  // Line by line reveal
+  const lines = document.querySelectorAll('.line-by-line .line');
   
-  gsap.to(lenore, {
+  gsap.to(lines, {
     opacity: 1,
-    scale: 1.1,
-    duration: 1.5,
-    ease: 'power2.out',
+    y: 0,
+    duration: 1.1,
+    stagger: 0.35,
+    ease: 'power3.out',
     scrollTrigger: {
-      trigger: lenore,
-      start: 'top 80%',
+      trigger: '.finale-text',
+      start: 'top 70%',
       toggleActions: 'play none none reverse'
     }
   });
   
-  // Glow pulse effect
-  if (!prefersReducedMotion) {
-    gsap.to(lenore, {
-      textShadow: '0 0 60px rgba(196, 169, 98, 0.8)',
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power1.inOut',
+  // Finale reveal
+  const finaleWord = document.querySelector('.finale-word');
+  const finaleHighlight = document.querySelector('.finale-highlight');
+  
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.finale-reveal',
+      start: 'top 75%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+  
+  if (finaleWord) {
+    tl.to(finaleWord, {
+      opacity: 1,
+      duration: 0.9,
+      ease: 'power3.out'
+    });
+  }
+  
+  if (finaleHighlight) {
+    tl.to(finaleHighlight, {
+      opacity: 1,
+      scale: 1,
+      duration: 1.2,
+      ease: 'back.out(1.5)'
+    }, '-=0.4');
+  }
+  
+  // Logo reveal
+  const logo = document.querySelector('.cf-logo');
+  
+  if (logo) {
+    gsap.to(logo, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: lenore,
-        start: 'top 80%'
+        trigger: logo,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
       }
     });
   }
 }
 
 // ─────────────────────────────────────────────────────────────────
-// PARALLAX SECTIONS
+// PARALLAX EFFECTS
 // ─────────────────────────────────────────────────────────────────
-function initParallaxSections() {
+function initParallax() {
   if (prefersReducedMotion) return;
   
-  gsap.utils.toArray('.parallax-section').forEach(section => {
-    const bg = section.querySelector('.parallax-bg');
+  gsap.utils.toArray('[data-parallax]').forEach(element => {
+    const speed = parseFloat(element.dataset.parallax) || 0.1;
     
-    gsap.to(bg, {
-      yPercent: 20,
+    gsap.to(element, {
+      yPercent: -35 * speed,
       ease: 'none',
       scrollTrigger: {
-        trigger: section,
+        trigger: element,
         start: 'top bottom',
         end: 'bottom top',
         scrub: true
@@ -286,91 +403,55 @@ function initParallaxSections() {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// QUOTE TYPEWRITER EFFECT
+// FLOATING SHAPES
 // ─────────────────────────────────────────────────────────────────
-function initTypewriter() {
-  const quoteText = document.getElementById('quoteText');
-  if (!quoteText) return;
+function initShapes() {
+  if (prefersReducedMotion) return;
   
-  const originalText = quoteText.innerHTML;
-  quoteText.innerHTML = '';
-  quoteText.style.visibility = 'visible';
-  
-  let hasPlayed = false;
-  
-  ScrollTrigger.create({
-    trigger: quoteText,
-    start: 'top 75%',
-    onEnter: () => {
-      if (hasPlayed) return;
-      hasPlayed = true;
-      
-      let i = 0;
-      const chars = originalText.split('');
-      
-      function typeChar() {
-        if (i < chars.length) {
-          // Handle HTML tags
-          if (chars[i] === '<') {
-            let tag = '';
-            while (chars[i] !== '>' && i < chars.length) {
-              tag += chars[i];
-              i++;
-            }
-            tag += chars[i];
-            i++;
-            quoteText.innerHTML += tag;
-          } else {
-            quoteText.innerHTML += chars[i];
-            i++;
-          }
-          
-          const delay = prefersReducedMotion ? 5 : (chars[i - 1] === ' ' ? 30 : 25);
-          setTimeout(typeChar, delay);
-        }
+  gsap.utils.toArray('.shape').forEach(shape => {
+    const speed = parseFloat(shape.dataset.speed) || 0.5;
+    
+    gsap.to(shape, {
+      y: `${-120 * speed}`,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: shape.closest('.section'),
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
       }
-      
-      typeChar();
-    }
+    });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// SPLIT TEXT & ECHO ANIMATIONS
+// STAGGER WORDS IN PARAGRAPHS
 // ─────────────────────────────────────────────────────────────────
-function initSplitTextAnimations() {
-  // Split lines
-  const splitLines = document.querySelectorAll('.split-line');
-  
-  gsap.to(splitLines, {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    duration: 1,
-    stagger: 0.3,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.split-text',
-      start: 'top 75%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  // Echo effect
-  const echoes = document.querySelectorAll('.echo');
-  
-  echoes.forEach((echo, i) => {
-    const delay = parseFloat(echo.dataset.delay) || i * 0.3;
+function initStaggerWords() {
+  gsap.utils.toArray('.stagger-words').forEach(paragraph => {
+    if (paragraph.dataset.processed) return;
+    paragraph.dataset.processed = 'true';
     
-    gsap.to(echo, {
-      opacity: 1 - (i * 0.3),
-      y: i * 10,
-      duration: 1,
-      delay: delay,
-      ease: 'power2.out',
+    const text = paragraph.innerHTML;
+    const words = text.split(/(\s+)/).map(word => {
+      if (word.match(/^\s+$/)) return word;
+      if (word.includes('<')) return word;
+      return `<span class="stagger-word" style="display:inline-block;opacity:0;transform:translateY(25px)">${word}</span>`;
+    }).join('');
+    
+    paragraph.innerHTML = words;
+    
+    const wordSpans = paragraph.querySelectorAll('.stagger-word');
+    
+    gsap.to(wordSpans, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.04,
+      ease: 'power3.out',
       scrollTrigger: {
-        trigger: '.echo-text',
-        start: 'top 70%',
+        trigger: paragraph,
+        start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     });
@@ -378,187 +459,120 @@ function initSplitTextAnimations() {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// RAVEN SILHOUETTE DRAW
+// GRADIENT ORB PARALLAX
 // ─────────────────────────────────────────────────────────────────
-function initRavenDraw() {
-  const ravenPath = document.querySelector('.raven-path');
-  if (!ravenPath) return;
+function initOrbParallax() {
+  if (prefersReducedMotion) return;
   
-  gsap.to(ravenPath, {
-    strokeDashoffset: 0,
-    duration: 2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.raven-silhouette',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    }
+  gsap.utils.toArray('.gradient-orb').forEach((orb, i) => {
+    gsap.to(orb, {
+      y: `${-250 - i * 60}`,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1
+      }
+    });
   });
 }
 
 // ─────────────────────────────────────────────────────────────────
-// NEVERMORE REVEAL
+// COLUMN CARDS
 // ─────────────────────────────────────────────────────────────────
-function initNevermoreReveal() {
-  const never = document.querySelector('.never');
-  const more = document.querySelector('.more');
+function initColumnCards() {
+  const cards = document.querySelectorAll('.column-card');
   
-  if (!never || !more) return;
-  
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.nevermore',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    }
+  cards.forEach((card, index) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 50,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse'
+      },
+      delay: index * 0.15
+    });
   });
+}
+
+// ─────────────────────────────────────────────────────────────────
+// INITIALIZE ALL
+// ─────────────────────────────────────────────────────────────────
+function init() {
+  // Fallback: if fonts don't load in 2s, run anyway
+  const runAnimations = () => {
+    initHero();
+    initLineReveals();
+    initCharReveals();
+    initUnderlines();
+    initStrikeThrough();
+    initFadeUps();
+    initWordPops();
+    initQuoteWords();
+    initTypewriter();
+    initImageReveals();
+    initStats();
+    initComparison();
+    initFinale();
+    initParallax();
+    initShapes();
+    initStaggerWords();
+    initOrbParallax();
+    initColumnCards();
+    
+    ScrollTrigger.refresh();
+  };
+
+  // Try fonts first, but fallback after 2 seconds
+  const timeout = setTimeout(runAnimations, 2000);
   
-  tl.to(never, {
-    opacity: 1,
-    x: 0,
-    duration: 0.8,
-    ease: 'power3.out'
-  });
-  
-  tl.to(more, {
-    opacity: 1,
-    x: 0,
-    duration: 1,
-    ease: 'power3.out'
-  }, '-=0.3');
-  
-  // Shake effect on "more"
-  if (!prefersReducedMotion) {
-    tl.to(more, {
-      x: '+=3',
-      duration: 0.05,
-      repeat: 5,
-      yoyo: true,
-      ease: 'power1.inOut'
-    }, '+=0.2');
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      clearTimeout(timeout);
+      runAnimations();
+    });
+  } else {
+    clearTimeout(timeout);
+    runAnimations();
   }
 }
 
-// ─────────────────────────────────────────────────────────────────
-// FINALE ANIMATIONS
-// ─────────────────────────────────────────────────────────────────
-function initFinaleAnimations() {
-  gsap.to('.finale-verse', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.finale-verse',
-      start: 'top 80%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-  
-  gsap.to('.finale-cta', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    delay: 0.3,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.finale-cta',
-      start: 'top 85%',
-      toggleActions: 'play none none reverse'
-    }
-  });
-}
-
-// ─────────────────────────────────────────────────────────────────
-// SMOOTH SCROLL TO SECTION (Enter button)
-// ─────────────────────────────────────────────────────────────────
-function initSmoothScroll() {
-  const enterBtn = document.getElementById('enterBtn');
-  if (!enterBtn) return;
-  
-  enterBtn.addEventListener('click', () => {
-    const target = document.getElementById('opening');
-    if (target) {
-      gsap.to(window, {
-        duration: 1.5,
-        scrollTo: { y: target, offsetY: 0 },
-        ease: 'power3.inOut'
-      });
-    } else {
-      // Fallback without ScrollTo plugin
-      document.getElementById('opening')?.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-}
-
-// ─────────────────────────────────────────────────────────────────
-// INITIALIZE ALL ANIMATIONS
-// ─────────────────────────────────────────────────────────────────
-function init() {
-  // Wait for fonts to load
-  document.fonts.ready.then(() => {
-    createParticles();
-    initHeroAnimations();
-    initStoryAnimations();
-    initCrossOutEffect();
-    initFlourishAnimations();
-    initDramaticPause();
-    initLenoreReveal();
-    initParallaxSections();
-    initTypewriter();
-    initSplitTextAnimations();
-    initRavenDraw();
-    initNevermoreReveal();
-    initFinaleAnimations();
-    initSmoothScroll();
-    
-    // Refresh ScrollTrigger after all animations are set up
-    ScrollTrigger.refresh();
-  });
-}
-
-// Run on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
   init();
 }
 
-// Refresh ScrollTrigger on window resize
 window.addEventListener('resize', () => {
   ScrollTrigger.refresh();
 });
 
 /**
  * ═══════════════════════════════════════════════════════════════════
- * CUSTOMIZATION GUIDE
+ * ANIMATION CLASSES REFERENCE
  * ═══════════════════════════════════════════════════════════════════
  * 
- * TO CUSTOMIZE THIS TEMPLATE:
+ * .line-reveal      - Fade up line by line
+ * .char-reveal      - Character by character reveal
+ * .word-pop         - Pop in each word with scale
+ * .fade-up          - Simple fade up
+ * .underline-animate - Animated underline on scroll
+ * .strike-through   - Animated strikethrough
+ * .text-gradient    - Rainbow gradient text
+ * .stagger-words    - Auto-split and stagger words
+ * .counter          - Animated number counter (data-target="100")
  * 
- * 1. IMAGES:
- *    - Replace 'raven background.png', 'library.png', 'landscape.png'
- *    - Update the background-image URLs in index.html
+ * DATA ATTRIBUTES:
  * 
- * 2. TEXT:
- *    - Edit the story content in index.html
- *    - Each .story-text element will animate on scroll
- * 
- * 3. COLORS:
- *    - Modify CSS variables in styles.css :root
- *    - Key colors: --gold, --crimson, --parchment
- * 
- * 4. FONTS:
- *    - Change Google Fonts import in index.html
- *    - Update --font-display and --font-body in styles.css
- * 
- * 5. ANIMATIONS:
- *    - Adjust durations and easing in this file
- *    - ScrollTrigger 'start' values control when animations begin
- * 
- * 6. SECTIONS:
- *    - Add new .story-section elements
- *    - Use .parallax-section for image backgrounds
+ * data-parallax="0.1"  - Parallax scroll speed
+ * data-delay="0.5"     - Animation delay
+ * data-speed="0.5"     - Shape float speed
+ * data-target="100"    - Counter target number
  * 
  * ═══════════════════════════════════════════════════════════════════
  */
