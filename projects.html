@@ -198,9 +198,8 @@
     }
     
     .featured-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 700px;
+      display: flex;
+      flex-direction: column;
     }
     
     .featured-media {
@@ -209,6 +208,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 500px;
+      order: 2;
+    }
+    
+    .featured-info {
+      order: 1;
     }
     
     .featured-video-wrapper {
@@ -278,9 +283,21 @@
     
     .featured-platforms {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .platform-logo {
+      height: 40px;
+      width: auto;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    
+    .platform-logo:hover {
+      opacity: 1;
     }
     
     .platform-tag {
@@ -625,23 +642,10 @@
     <span class="featured-badge">🔥 Featured Campaign</span>
     
     <div class="featured-content">
-      <div class="featured-media">
-        <div class="featured-video-wrapper" id="video-container">
-          <img 
-            src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/9ef9d09b5e5a4c8e9f4e4e0c9b7c1d3e6a5f4b3c2d1e0f9a8b7c6d5e4f3a2b1c._UR1920,1080_SX720_FMwebp_.jpg" 
-            alt="The New Saints Documentary" 
-            class="featured-thumbnail"
-            id="video-thumbnail"
-            onerror="this.style.background='linear-gradient(135deg, #0a1628 0%, #1a2744 100%)'; this.style.display='flex'; this.innerHTML='<span style=&quot;color:white;font-family:Syne;font-size:2rem;font-weight:800&quot;>TNS</span>'"
-          >
-          <div class="play-button" id="play-button"></div>
-        </div>
-      </div>
-      
       <div class="featured-info">
         <div class="featured-platforms">
-          <span class="platform-tag prime">Amazon Prime Video</span>
-          <span class="platform-tag apple">Apple TV</span>
+          <img src="Amazon_Prime_Video_logo.svg" alt="Amazon Prime Video" class="platform-logo">
+          <img src="Apple_TV_logo_2025.png" alt="Apple TV" class="platform-logo">
         </div>
         
         <h2>The New Saints: Road To Europe</h2>
@@ -696,6 +700,19 @@
           </div>
         </div>
       </div>
+      
+      <div class="featured-media">
+        <div class="featured-video-wrapper" id="video-container">
+          <img 
+            src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/9ef9d09b5e5a4c8e9f4e4e0c9b7c1d3e6a5f4b3c2d1e0f9a8b7c6d5e4f3a2b1c._UR1920,1080_SX720_FMwebp_.jpg" 
+            alt="The New Saints Documentary" 
+            class="featured-thumbnail"
+            id="video-thumbnail"
+            onerror="this.style.background='linear-gradient(135deg, #0a1628 0%, #1a2744 100%)'; this.style.display='flex'; this.innerHTML='<span style=&quot;color:white;font-family:Syne;font-size:2rem;font-weight:800&quot;>TNS</span>'"
+          >
+          <div class="play-button" id="play-button"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -710,7 +727,7 @@
       <!-- BlogFanatic -->
       <div class="project-card">
         <div class="project-image blogfanatic">
-          <span class="project-logo">BlogFanatic</span>
+          <img src="BLOGFANATIC logo.png" alt="BlogFanatic" style="max-height: 80px; max-width: 90%; object-fit: contain;">
           <span class="project-status">Active</span>
         </div>
         <div class="project-body">
@@ -728,6 +745,39 @@
           <div class="project-actions">
             <a href="https://www.blogfanatic.com" target="_blank" class="btn btn-secondary">Visit Site</a>
             <a href="mailto:apply@creatorfunds.org?subject=BlogFanatic%20Campaign%20Application&body=I'd%20like%20to%20apply%20to%20the%20BlogFanatic%20campaign.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Marquis de Mayfair -->
+      <div class="project-card">
+        <div class="project-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d1f3d 100%);">
+          <img src="Marquis de Mayfair logo.png" alt="Marquis de Mayfair" style="max-height: 100px; max-width: 90%; object-fit: contain;">
+          <span class="project-status" style="background: #ff6b6b;">18+ Only</span>
+        </div>
+        <div class="project-body">
+          <h3>Marquis de Mayfair</h3>
+          <p class="tagline">Luxury Adult Brand for Intimacy & Play</p>
+          <p>This prestigious Central London brand is the purveyor of fine leather accessories and play equipment for open-minded adults with high expectations of luxury in their most private experiences.</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">Luxury Lifestyle</span>
+            <span class="meta-tag">Adult Content</span>
+            <span class="meta-tag">Podcast</span>
+            <span class="meta-tag">18+</span>
+          </div>
+          
+          <p style="margin-top: 1rem; padding: 1rem; background: #f8f7f4; border-radius: 12px; font-size: 0.9rem; color: var(--text-secondary);">
+            <strong>Campaign:</strong> Take the "What is your bedroom archetype?" quiz at <a href="https://quiz.marquisdemayfair.com" target="_blank" style="color: var(--violet);">quiz.marquisdemayfair.com</a>, then join a group of matching individuals for a podcast episode for the new Marquis de Mayfair YouTube channel launching mid-2026.
+          </p>
+          
+          <p style="margin-top: 0.5rem; padding: 0.75rem; background: rgba(255,107,107,0.1); border-left: 3px solid var(--coral); font-size: 0.85rem; color: var(--text-secondary);">
+            <strong>Benefits:</strong> Discounted products, shared collaboration, VIP tickets to London's next elite party.
+          </p>
+          
+          <div class="project-actions">
+            <a href="https://www.marquisdemayfair.com" target="_blank" class="btn btn-secondary">Visit Site</a>
+            <a href="mailto:apply@creatorfunds.org?subject=Marquis%20de%20Mayfair%20Campaign%20Application%20(18%2B)&body=I%20confirm%20I%20am%2018%2B%20and%20would%20like%20to%20apply%20to%20the%20Marquis%20de%20Mayfair%20campaign.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-primary">Apply Now (18+)</a>
           </div>
         </div>
       </div>
@@ -754,6 +804,64 @@
     </div>
   </section>
 
+  <!-- Future Offers -->
+  <section class="other-projects" style="background: var(--bg-secondary);">
+    <div class="section-header">
+      <span class="section-label">Coming 2026</span>
+      <h2 class="section-title">Future Campaigns</h2>
+      <p class="section-text" style="margin-top: 1rem;">Get early access to upcoming campaigns. Submit your email to be notified when these go live.</p>
+    </div>
+    
+    <div class="projects-grid" style="margin-top: 2rem;">
+      <div class="project-card">
+        <div class="project-image" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
+          <span class="project-logo">⚔️</span>
+        </div>
+        <div class="project-body">
+          <h3>Warhammer Enthusiasts</h3>
+          <p class="tagline">Role-Playing Campaign</p>
+          <p>Calling all Warhammer enthusiasts! A new campaign launching in 2026 for role-playing content creators. Details coming soon.</p>
+          <div class="project-meta">
+            <span class="meta-tag">Gaming</span>
+            <span class="meta-tag">Role-Playing</span>
+            <span class="meta-tag">2026</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="project-image" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+          <span class="project-logo">🎮</span>
+          <span class="project-status" style="background: #ff6b6b;">18+</span>
+        </div>
+        <div class="project-body">
+          <h3>World Leading Computer Games</h3>
+          <p class="tagline">First-Person RPG (18+)</p>
+          <p>World leading computer game seeking players for a first-person RPG set in an alternative crime-ridden American city where you play the criminal. Campaign launching 2026.</p>
+          <div class="project-meta">
+            <span class="meta-tag">Gaming</span>
+            <span class="meta-tag">RPG</span>
+            <span class="meta-tag">18+</span>
+            <span class="meta-tag">2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="max-width: 600px; margin: 3rem auto 0; background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+      <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; text-align: center;">Early Apply</h3>
+      <form name="future-campaigns" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="future-campaigns">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <input type="email" name="email" placeholder="Your email address" required style="flex: 1; min-width: 200px; padding: 1rem; border: 2px solid rgba(0,0,0,0.08); border-radius: 12px; font-size: 1rem;">
+          <button type="submit" class="btn btn-primary" style="padding: 1rem 2rem;">Notify Me</button>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; text-align: center;">We'll email you when these campaigns launch.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="cta-section">
     <h2>Don't see your niche?</h2>
@@ -766,7 +874,18 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 CreatorFunds. All rights reserved. <a href="mailto:apply@creatorfunds.org">apply@creatorfunds.org</a></p>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+        <div>
+          <p style="font-weight: 600; margin-bottom: 0.5rem; opacity: 1;">Head Offices</p>
+          <p style="opacity: 0.7; font-size: 0.9rem;">London • Bangkok • NYC • Palm Springs • Lisbon • Cape Town</p>
+        </div>
+        <div>
+          <p style="opacity: 0.7; font-size: 0.9rem;"><a href="mailto:apply@creatorfunds.org" style="color: var(--coral); text-decoration: none;">apply@creatorfunds.org</a></p>
+        </div>
+      </div>
+      <p style="opacity: 0.6; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 1.5rem;">© 2026 CreatorFunds. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
