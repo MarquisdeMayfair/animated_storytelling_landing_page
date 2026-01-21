@@ -374,12 +374,12 @@
     }
     
     .seeking-box {
-      background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
-      border: 2px solid rgba(255, 107, 107, 0.4);
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.25) 0%, rgba(16, 185, 129, 0.25) 100%);
+      border: 2px solid rgba(34, 197, 94, 0.5);
       border-radius: 20px;
       padding: 2.5rem;
       margin-top: 2rem;
-      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
       position: relative;
       overflow: hidden;
     }
@@ -391,7 +391,15 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--coral) 0%, var(--magenta) 100%);
+      background: linear-gradient(90deg, #22c55e 0%, #10b981 100%);
+    }
+    
+    .seeking-box .apply-button-container {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
     }
     
     .seeking-box h4 {
@@ -898,9 +906,6 @@
           <a href="https://tv.apple.com/gb/movie/the-new-saints-road-to-europe-the-mike-harris-story/umc.cmc.7kb5wd3drqt4jzngilfx2t2lg" target="_blank" class="btn btn-outline" id="apple-tv-link" onclick="gtag('event', 'click', {event_category: 'TNS Documentary', event_label: 'Apple TV Link', value: 1});">
             Watch on Apple TV →
           </a>
-          <button class="btn btn-outline" onclick="openModal('tns-modal')">
-            Apply to Review
-          </button>
         </div>
         
         <div class="seeking-box">
@@ -929,6 +934,12 @@
               <li>Top contributors will receive CreatorFunds payments</li>
               <li>VIP tickets to TNS matches and UEFA Champions League, travel included</li>
             </ul>
+          </div>
+          
+          <div class="apply-button-container">
+            <button class="btn btn-outline" onclick="openModal('tns-modal')" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.4); color: white;">
+              Apply to Review
+            </button>
           </div>
           
           <div class="seeking-tags">
