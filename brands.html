@@ -482,7 +482,7 @@
       <li><a href="brands.html" class="active">For Brands</a></li>
       <li><a href="creators.html">For Creators</a></li>
       <li><a href="projects.html">Current Projects</a></li>
-      <li><a href="mailto:apply@creatorfunds.org">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -565,13 +565,14 @@
   <section class="contact" id="contact">
     <div class="contact-inner">
       <div class="contact-header">
-        <span class="section-label">Get Started</span>
-        <h2 class="section-title">Tell us about your campaign</h2>
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Contact Us</h2>
         <p class="section-text" style="margin: 0 auto;">Fill in the details below and our team will be in touch within 24 hours.</p>
       </div>
       
-      <form class="form" name="brand-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="brand-enquiry">
+      <form class="form" name="business-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="business-contact">
+        <input type="hidden" name="contact-type" value="brand-enquiry">
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
         <div class="form-grid">
           <div class="form-group">
@@ -579,44 +580,47 @@
             <input type="text" id="name" name="name" required>
           </div>
           <div class="form-group">
-            <label for="company">Company / Brand</label>
-            <input type="text" id="company" name="company" required>
-          </div>
-          <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" required>
           </div>
           <div class="form-group">
-            <label for="budget">Campaign Budget</label>
-            <select id="budget" name="budget">
-              <option value="">Select budget range</option>
-              <option value="under-10k">Under $10,000</option>
-              <option value="10k-50k">$10,000 - $50,000</option>
-              <option value="50k-100k">$50,000 - $100,000</option>
-              <option value="100k-500k">$100,000 - $500,000</option>
-              <option value="500k+">$500,000+</option>
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="office-location">Office Location</label>
+            <select id="office-location" name="office_location">
+              <option value="">Select office location</option>
+              <option value="london">London, UK</option>
+              <option value="bangkok">Bangkok, Thailand</option>
+              <option value="nyc">New York City, USA</option>
+              <option value="palm-springs">Palm Springs, USA</option>
+              <option value="lisbon">Lisbon, Portugal</option>
+              <option value="cape-town">Cape Town, South Africa</option>
             </select>
           </div>
-          <div class="form-group full-width">
-            <label for="campaign">Campaign Type</label>
-            <select id="campaign" name="campaign">
-              <option value="">Select campaign type</option>
-              <option value="product-launch">Product Launch</option>
-              <option value="brand-awareness">Brand Awareness</option>
-              <option value="content-series">Content Series</option>
-              <option value="event-promotion">Event Promotion</option>
-              <option value="streaming-premiere">Streaming/Film Premiere</option>
-              <option value="ongoing-partnership">Ongoing Partnership</option>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select subject</option>
+              <option value="campaign-enquiry">Campaign Enquiry</option>
+              <option value="partnership">Partnership Opportunity</option>
+              <option value="general-inquiry">General Inquiry</option>
+              <option value="media-press">Media / Press</option>
               <option value="other">Other</option>
             </select>
           </div>
           <div class="form-group full-width">
-            <label for="message">Tell us about your project</label>
-            <textarea id="message" name="message" placeholder="What's the story you want to tell? Who's your target audience? Any specific creator types you have in mind?"></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
           </div>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn btn-primary">Submit Enquiry</button>
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </div>
       </form>
     </div>

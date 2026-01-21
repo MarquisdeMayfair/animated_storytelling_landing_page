@@ -520,7 +520,7 @@
       <li><a href="brands.html">For Brands</a></li>
       <li><a href="creators.html" class="active">For Creators</a></li>
       <li><a href="projects.html">Current Projects</a></li>
-      <li><a href="mailto:apply@creatorfunds.org">Contact</a></li>
+      <li><a href="#general-contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -676,6 +676,18 @@
               <option value="celebrity">1M+</option>
             </select>
           </div>
+          <div class="form-group">
+            <label for="office-location-creator">Office Location</label>
+            <select id="office-location-creator" name="office_location">
+              <option value="">Select office location</option>
+              <option value="london">London, UK</option>
+              <option value="bangkok">Bangkok, Thailand</option>
+              <option value="nyc">New York City, USA</option>
+              <option value="palm-springs">Palm Springs, USA</option>
+              <option value="lisbon">Lisbon, Portugal</option>
+              <option value="cape-town">Cape Town, South Africa</option>
+            </select>
+          </div>
           <div class="form-group full-width">
             <label for="niche">Your Niche / Content Type</label>
             <input type="text" id="niche" name="niche" placeholder="e.g., Tech reviews, Lifestyle, Gaming, Film commentary, Sports">
@@ -691,6 +703,72 @@
         </div>
         <div class="form-submit">
           <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- General Contact Section -->
+  <section class="contact" id="general-contact" style="background: white;">
+    <div class="contact-inner">
+      <div class="contact-header">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">General Business Contact</h2>
+        <p class="section-text" style="margin: 0 auto;">For general inquiries, partnerships, or business matters, please use the form below.</p>
+      </div>
+      
+      <form class="form" name="general-business-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="general-business-contact">
+        <input type="hidden" name="contact-type" value="general-inquiry">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-company">Company / Organization</label>
+            <input type="text" id="contact-company" name="company">
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone Number</label>
+            <input type="tel" id="contact-phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="contact-office-location">Office Location</label>
+            <select id="contact-office-location" name="office_location">
+              <option value="">Select office location</option>
+              <option value="london">London, UK</option>
+              <option value="bangkok">Bangkok, Thailand</option>
+              <option value="nyc">New York City, USA</option>
+              <option value="palm-springs">Palm Springs, USA</option>
+              <option value="lisbon">Lisbon, Portugal</option>
+              <option value="cape-town">Cape Town, South Africa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <select id="contact-subject" name="subject">
+              <option value="">Select subject</option>
+              <option value="general-inquiry">General Inquiry</option>
+              <option value="partnership">Partnership Opportunity</option>
+              <option value="media-press">Media / Press</option>
+              <option value="creator-inquiry">Creator Inquiry</option>
+              <option value="brand-inquiry">Brand Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Send Message</button>
         </div>
       </form>
     </div>
