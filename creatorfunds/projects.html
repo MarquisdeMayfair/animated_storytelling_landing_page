@@ -729,6 +729,10 @@
       resize: vertical;
     }
     
+    .modal-form-group input[type="checkbox"] {
+      accent-color: var(--violet);
+    }
+    
     .modal-form-submit {
       margin-top: 1rem;
     }
@@ -1095,6 +1099,18 @@
         <div class="modal-form-group">
           <label for="tns-niche">Your Content Niche</label>
           <input type="text" id="tns-niche" name="niche" placeholder="e.g., Football content, Sports commentary, Documentary reviews">
+        </div>
+        
+        <div class="modal-form-group">
+          <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+            <input type="checkbox" name="watched_confirmed" value="yes" required style="margin-top: 0.25rem; width: 20px; height: 20px; cursor: pointer; flex-shrink: 0;">
+            <span>I have watched <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/0MPMK7C805L3K0QK3RIS2KHZI2" target="_blank" style="color: var(--violet); text-decoration: underline;">the video</a> and I confirm, this is a program I would like to review and promote.</span>
+          </label>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-favourite">My favourite part of the video was:</label>
+          <textarea id="tns-favourite" name="favourite_part" placeholder="Tell us what stood out to you in the documentary..." required></textarea>
         </div>
         
         <div class="modal-form-group">
