@@ -121,6 +121,16 @@ function initStrikeThrough() {
       onLeaveBack: () => element.classList.remove('is-visible')
     });
   });
+  
+  // Animated strikeout (triggers later, when text is well past center)
+  gsap.utils.toArray('.strikeout').forEach(element => {
+    ScrollTrigger.create({
+      trigger: element,
+      start: 'top 35%', // Much later - when text is above center
+      onEnter: () => element.classList.add('is-struck'),
+      onLeaveBack: () => element.classList.remove('is-struck')
+    });
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────
