@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Brands | CreatorFunds</title>
+  <title>Contact Us | CreatorFunds</title>
+  <meta name="description" content="Get in touch with CreatorFunds. General business inquiries, partnerships, and contact information for our offices worldwide.">
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6Q54RCY8F"></script>
@@ -13,7 +14,6 @@
     gtag('js', new Date());
     gtag('config', 'G-G6Q54RCY8F');
   </script>
-  <meta name="description" content="Partner with CreatorFunds to connect your brand with authentic voices worldwide. Pre-vetted influencers, 1:1 outreach, genuine storytelling.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,7 +95,7 @@
     
     /* Hero */
     .hero {
-      min-height: 70vh;
+      min-height: 50vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -105,25 +105,12 @@
       background: linear-gradient(180deg, rgba(255,107,107,0.03) 0%, transparent 50%);
     }
     
-    .hero-badge {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: var(--bg-secondary);
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--violet);
-      margin-bottom: 2rem;
-      border: 1px solid rgba(139, 92, 246, 0.2);
-    }
-    
     .hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 800;
       line-height: 1.1;
-      margin-bottom: 1.5rem;
-      max-width: 900px;
+      margin-bottom: 1rem;
     }
     
     .hero h1 span {
@@ -134,51 +121,9 @@
     }
     
     .hero p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--text-secondary);
       max-width: 600px;
-      margin-bottom: 2.5rem;
-    }
-    
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
-    
-    .btn-primary {
-      background: var(--gradient-hero);
-      color: white;
-      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-    }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-    }
-    
-    .btn-secondary {
-      background: white;
-      color: var(--text-primary);
-      border: 2px solid rgba(0,0,0,0.1);
-    }
-    
-    .btn-secondary:hover {
-      border-color: var(--coral);
-      color: var(--coral);
     }
     
     /* Section */
@@ -211,133 +156,6 @@
       color: var(--text-secondary);
       max-width: 700px;
       line-height: 1.8;
-    }
-    
-    /* Features Grid */
-    .features {
-      background: var(--bg-secondary);
-      padding: 6rem 2rem;
-    }
-    
-    .features-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .feature-card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 20px;
-      border: 1px solid rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-    
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 15px;
-      background: var(--gradient-hero);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .feature-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-    
-    .feature-card p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    
-    /* Campfire Section */
-    .campfire {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d1f3d 100%);
-      color: white;
-      padding: 8rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .campfire::before {
-      content: '🔥';
-      position: absolute;
-      font-size: 15rem;
-      opacity: 0.05;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .campfire-inner {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .campfire h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-    
-    .campfire h2 span {
-      background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .campfire p {
-      font-size: 1.2rem;
-      opacity: 0.85;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    
-    .campfire-voices {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-    
-    .voice-tag {
-      padding: 0.75rem 1.5rem;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: all 0.3s ease;
-    }
-    
-    .voice-tag:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
     }
     
     /* Contact Form */
@@ -418,22 +236,60 @@
       min-width: 250px;
     }
     
-    /* Projects Link */
-    .projects-cta {
-      text-align: center;
-      padding: 4rem 2rem;
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+    }
+    
+    /* Offices Section */
+    .offices {
+      padding: 6rem 2rem;
       background: white;
     }
     
-    .projects-cta h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
     
-    .projects-cta p {
+    .office-card {
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .office-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .office-card p {
       color: var(--text-secondary);
-      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
     
     /* Footer */
@@ -479,100 +335,30 @@
   <nav class="nav">
     <a href="index.html" class="nav-logo">CreatorFunds</a>
     <ul class="nav-links">
-      <li><a href="brands.html" class="active">For Brands</a></li>
+      <li><a href="brands.html">For Brands</a></li>
       <li><a href="creators.html">For Creators</a></li>
       <li><a href="projects.html">Current Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <span class="hero-badge">🌍 Global Creator Network</span>
-    <h1>Your story deserves <span>a thousand voices</span></h1>
-    <p>We connect leading brands with authentic creators worldwide. Pre-vetted, 1:1 outreach, genuine partnerships that resonate.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Start a Campaign</a>
-      <a href="projects.html" class="btn btn-secondary">View Projects</a>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features">
-    <div class="features-inner">
-      <span class="section-label">How We Work</span>
-      <h2 class="section-title">Not volume. Richness.</h2>
-      <p class="section-text">We don't blast your brief to a database. We hand-pick creators who genuinely connect with your brand story.</p>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🔍</div>
-          <h3>Direct 1:1 Outreach</h3>
-          <p>Every creator is personally contacted. No spray and pray. We build relationships before we make introductions.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">✓</div>
-          <h3>Pre-Vetted Creators</h3>
-          <p>We ensure the influencer genuinely likes and matches your brand—or will bring a fresh, authentic perspective to your story.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3>Global Network</h3>
-          <p>Sourcing content creators from every corner of the world. Local voices for global brands, global voices for local impact.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Campaign Management</h3>
-          <p>From brief to delivery, we handle the entire process. You focus on your brand, we orchestrate the conversation.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
-          <h3>Qualified Community</h3>
-          <p>We have 250,000 B2B contacts across every vertical and 1.2M creators ready to amplify your story.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Campfire Section -->
-  <section class="campfire">
-    <div class="campfire-inner">
-      <h2>You have a story.<br><span>We have the tribe.</span></h2>
-      <p>Think of it as a campfire. Your brand's story sits at the center, and around it gathers a community of voices—each adding their own warmth, their own spark, their own perspective.</p>
-      <p>We don't just attract attention. We attract, inform, and educate. Not through volume, but through richness. A tapestry of voices that makes your story more human, more real, more resonant.</p>
-      
-      <div class="campfire-voices">
-        <span class="voice-tag">Micro Influencers</span>
-        <span class="voice-tag">Established Voices</span>
-        <span class="voice-tag">Creative Storytellers</span>
-        <span class="voice-tag">Controversial Perspectives</span>
-        <span class="voice-tag">The Quiet Supporters</span>
-        <span class="voice-tag">Niche Experts</span>
-        <span class="voice-tag">Rising Stars</span>
-        <span class="voice-tag">Industry Veterans</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Working With -->
-  <section>
-    <span class="section-label">Trusted Partners</span>
-    <h2 class="section-title">Working with leading brands worldwide</h2>
-    <p class="section-text">From streaming giants to tech innovators, sports associations to SaaS platforms—we've helped brands of all sizes find their voice through authentic creator partnerships.</p>
+    <h1>Get in <span>Touch</span></h1>
+    <p>We're here to help. Reach out for general inquiries, partnerships, or business matters.</p>
   </section>
 
   <!-- Contact Form -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <div class="contact-header">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Contact Us</h2>
+        <span class="section-label">Contact Us</span>
+        <h2 class="section-title">Send us a message</h2>
         <p class="section-text" style="margin: 0 auto;">Fill in the details below and our team will be in touch within 24 hours.</p>
       </div>
       
-      <form class="form" name="business-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="business-contact">
-        <input type="hidden" name="contact-type" value="brand-enquiry">
+      <form class="form" name="general-business-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="general-business-contact">
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
         <div class="form-grid">
           <div class="form-group">
@@ -607,10 +393,11 @@
             <label for="subject">Subject</label>
             <select id="subject" name="subject">
               <option value="">Select subject</option>
-              <option value="campaign-enquiry">Campaign Enquiry</option>
-              <option value="partnership">Partnership Opportunity</option>
               <option value="general-inquiry">General Inquiry</option>
+              <option value="partnership">Partnership Opportunity</option>
               <option value="media-press">Media / Press</option>
+              <option value="creator-inquiry">Creator Inquiry</option>
+              <option value="brand-inquiry">Brand Inquiry</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -626,11 +413,38 @@
     </div>
   </section>
 
-  <!-- Projects CTA -->
-  <section class="projects-cta">
-    <h3>See what we're working on</h3>
-    <p>Explore our current campaigns and find opportunities to get involved.</p>
-    <a href="projects.html" class="btn btn-primary">View Current Projects →</a>
+  <!-- Offices Section -->
+  <section class="offices">
+    <span class="section-label">Our Offices</span>
+    <h2 class="section-title">Head Offices Worldwide</h2>
+    <p class="section-text">CreatorFunds operates from six strategic locations around the globe.</p>
+    
+    <div class="offices-grid">
+      <div class="office-card">
+        <h3>London</h3>
+        <p>United Kingdom</p>
+      </div>
+      <div class="office-card">
+        <h3>Bangkok</h3>
+        <p>Thailand</p>
+      </div>
+      <div class="office-card">
+        <h3>New York City</h3>
+        <p>United States</p>
+      </div>
+      <div class="office-card">
+        <h3>Palm Springs</h3>
+        <p>United States</p>
+      </div>
+      <div class="office-card">
+        <h3>Lisbon</h3>
+        <p>Portugal</p>
+      </div>
+      <div class="office-card">
+        <h3>Cape Town</h3>
+        <p>South Africa</p>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
