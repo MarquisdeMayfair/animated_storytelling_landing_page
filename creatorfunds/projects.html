@@ -368,38 +368,115 @@
     }
     
     .seeking-box {
-      background: rgba(255, 107, 107, 0.15);
-      border: 1px solid rgba(255, 107, 107, 0.3);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-top: 1rem;
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+      border: 2px solid rgba(255, 107, 107, 0.4);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .seeking-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--coral) 0%, var(--magenta) 100%);
     }
     
     .seeking-box h4 {
       font-family: var(--font-display);
-      font-size: 1.1rem;
-      color: var(--coral);
-      margin-bottom: 0.75rem;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     
     .seeking-box p {
+      font-size: 1rem;
+      opacity: 0.95;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .seeking-box .benefits-intro {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .benefits-group {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .benefits-group h5 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .benefits-group ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .benefits-group li {
       font-size: 0.95rem;
-      opacity: 0.9;
-      line-height: 1.6;
+      line-height: 1.8;
+      opacity: 0.95;
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    
+    .benefits-group li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--coral);
+      font-weight: 700;
+      font-size: 1.1rem;
     }
     
     .seeking-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
     }
     
     .seeking-tag {
-      padding: 0.4rem 0.8rem;
-      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .seeking-tag:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
     }
     
     /* Other Projects */
@@ -823,6 +900,31 @@
         <div class="seeking-box">
           <h4>🎯 Actively Seeking Creators</h4>
           <p>We're building a community of football fans, sports enthusiasts, reality TV lovers, and lovers of the underdog to watch and review this remarkable British football story.</p>
+          
+          <p class="benefits-intro">Benefits: Creators will be split into three categories based on match profiles (not just followers).</p>
+          
+          <div class="benefits-group">
+            <h5>📊 Group A</h5>
+            <ul>
+              <li>Community sharing of their content</li>
+              <li>Early access and insights to review the upcoming full season</li>
+              <li>Best quotes from contributors will appear in trailers and promotion for this video and future episodes</li>
+              <li>Potential viewership of 300M a month</li>
+            </ul>
+          </div>
+          
+          <div class="benefits-group">
+            <h5>⭐ Group B</h5>
+            <ul>
+              <li>All Group A benefits, plus:</li>
+              <li>Joint content collabs with the key talent from the series</li>
+              <li>Invite to be on a new podcast</li>
+              <li>Inclusion to appear and share your reviews in a discussion series similar to Gogglebox but for football and TNS</li>
+              <li>Top contributors will receive CreatorFunds payments</li>
+              <li>VIP tickets to TNS matches and UEFA Champions League, travel included</li>
+            </ul>
+          </div>
+          
           <div class="seeking-tags">
             <span class="seeking-tag">Football Content</span>
             <span class="seeking-tag">Sports Commentary</span>
