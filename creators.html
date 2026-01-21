@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Creators | CreatorFunds</title>
+  <meta name="description" content="Join CreatorFunds and get matched with brands, films, shows, and products that value your unique voice. We amplify every creator, regardless of size.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --bg-primary: #fefefe;
+      --bg-secondary: #f8f7f4;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --coral: #ff6b6b;
+      --violet: #8b5cf6;
+      --magenta: #ec4899;
+      --gradient-hero: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 50%, var(--coral) 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(254, 254, 254, 0.9);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-decoration: none;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--violet);
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(180deg, rgba(139,92,246,0.05) 0%, transparent 50%);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--magenta);
+      margin-bottom: 2rem;
+      border: 1px solid rgba(236, 72, 153, 0.2);
+    }
+    
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+    
+    .hero h1 span {
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--text-primary);
+      border: 2px solid rgba(0,0,0,0.1);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--violet);
+      color: var(--violet);
+    }
+    
+    /* Section */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--violet);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      line-height: 1.8;
+    }
+    
+    /* Not Just Brands */
+    .opportunities {
+      background: var(--bg-secondary);
+      padding: 6rem 2rem;
+    }
+    
+    .opportunities-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    
+    .opportunity-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .opportunity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    
+    .opportunity-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .opportunity-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .opportunity-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* How We Amplify */
+    .amplify {
+      padding: 6rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .amplify-list {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .amplify-item {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .amplify-item:hover {
+      transform: translateX(10px);
+    }
+    
+    .amplify-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+    }
+    
+    .amplify-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .amplify-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    
+    /* Voice Section */
+    .voice {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1f3d 100%);
+      color: white;
+      padding: 8rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .voice::before {
+      content: '🎤';
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.05;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .voice-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .voice h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .voice h2 span {
+      background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .voice p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .voice-quote {
+      font-style: italic;
+      font-size: 1.4rem;
+      margin: 3rem 0;
+      padding: 2rem;
+      border-left: 4px solid var(--coral);
+      text-align: left;
+      background: rgba(255,255,255,0.05);
+      border-radius: 0 15px 15px 0;
+    }
+    
+    /* Contact Form */
+    .contact {
+      background: var(--bg-secondary);
+      padding: 6rem 2rem;
+    }
+    
+    .contact-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .form {
+      background: white;
+      padding: 3rem;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 1rem;
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: var(--bg-primary);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--violet);
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-submit {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    
+    .form-submit .btn {
+      min-width: 250px;
+    }
+    
+    /* Projects Link */
+    .projects-cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: white;
+    }
+    
+    .projects-cta h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .projects-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    footer p {
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+    
+    footer a {
+      color: var(--violet);
+      text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form {
+        padding: 2rem;
+      }
+      
+      .amplify-item {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">CreatorFunds</a>
+    <ul class="nav-links">
+      <li><a href="brands.html">For Brands</a></li>
+      <li><a href="creators.html" class="active">For Creators</a></li>
+      <li><a href="projects.html">Current Projects</a></li>
+      <li><a href="mailto:apply@creatorfunds.org">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">✨ Your Voice Matters</span>
+    <h1>We want <span>your story</span></h1>
+    <p>Not just brands—movies, TV shows, products, songs. We want your opinion, your storytelling, your unique perspective. Every voice amplified.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Apply Now</a>
+      <a href="projects.html" class="btn btn-secondary">See Open Projects</a>
+    </div>
+  </section>
+
+  <!-- Not Just Brands -->
+  <section class="opportunities">
+    <div class="opportunities-inner">
+      <span class="section-label">Opportunities</span>
+      <h2 class="section-title">This isn't just brand deals</h2>
+      <p class="section-text">We connect creators with stories worth telling—whatever form they take.</p>
+      
+      <div class="opportunities-grid">
+        <div class="opportunity-card">
+          <div class="opportunity-icon">🎬</div>
+          <h3>Movies & Film</h3>
+          <p>Reviews, premieres, behind-the-scenes</p>
+        </div>
+        <div class="opportunity-card">
+          <div class="opportunity-icon">📺</div>
+          <h3>TV Shows</h3>
+          <p>Streaming series, documentaries, reality</p>
+        </div>
+        <div class="opportunity-card">
+          <div class="opportunity-icon">🎵</div>
+          <h3>Music</h3>
+          <p>Albums, singles, artist collaborations</p>
+        </div>
+        <div class="opportunity-card">
+          <div class="opportunity-icon">📱</div>
+          <h3>Products</h3>
+          <p>Tech, lifestyle, apps, services</p>
+        </div>
+        <div class="opportunity-card">
+          <div class="opportunity-icon">⚽</div>
+          <h3>Sports</h3>
+          <p>Events, teams, athletes, gear</p>
+        </div>
+        <div class="opportunity-card">
+          <div class="opportunity-icon">🎮</div>
+          <h3>Gaming</h3>
+          <p>Titles, tournaments, studios</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Amplify -->
+  <section class="amplify">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">We amplify every voice</h2>
+    <p class="section-text">We manage campaigns that bring creators together—matching views, opinions, even disagreements—to create richer conversations.</p>
+    
+    <div class="amplify-list">
+      <div class="amplify-item">
+        <span class="amplify-number">01</span>
+        <div class="amplify-content">
+          <h3>Cross-Collaboration</h3>
+          <p>We don't just match one creator to one brand. We build collectives—diverse voices that amplify each other, creating campaigns that feel like movements.</p>
+        </div>
+      </div>
+      <div class="amplify-item">
+        <span class="amplify-number">02</span>
+        <div class="amplify-content">
+          <h3>Every Perspective Welcome</h3>
+          <p>Agree or disagree. Love it or critique it. We believe authentic reactions—even controversial ones—create the most engaging content.</p>
+        </div>
+      </div>
+      <div class="amplify-item">
+        <span class="amplify-number">03</span>
+        <div class="amplify-content">
+          <h3>Size Doesn't Matter</h3>
+          <p>From nano-influencers to established voices, we match based on authenticity, not follower count. Our fund helps smaller creators access bigger opportunities.</p>
+        </div>
+      </div>
+      <div class="amplify-item">
+        <span class="amplify-number">04</span>
+        <div class="amplify-content">
+          <h3>We Handle Everything</h3>
+          <p>Contracts, briefs, payments, timelines. You focus on creating. We handle the rest.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice Section -->
+  <section class="voice">
+    <div class="voice-inner">
+      <h2>Your opinion. <span>Your way.</span></h2>
+      <p>We're not looking for scripts. We're looking for authentic voices. Whether you're reviewing a film, unboxing a product, or sharing your hot take on a new show—we want the real you.</p>
+      
+      <div class="voice-quote">
+        "The best content doesn't come from creators pretending to love something. It comes from creators who genuinely connect—or genuinely don't. Both make for compelling storytelling."
+      </div>
+      
+      <p>We match you with projects that fit your niche, your style, your audience. And when opinions differ? That's when the conversation gets interesting.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-header">
+        <span class="section-label">Join Us</span>
+        <h2 class="section-title">Apply to join CreatorFunds</h2>
+        <p class="section-text" style="margin: 0 auto;">Tell us about yourself and we'll match you with the right opportunities.</p>
+      </div>
+      
+      <form class="form" action="mailto:apply@creatorfunds.org" method="POST" enctype="text/plain">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Your Name / Handle</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="platform">Primary Platform</label>
+            <select id="platform" name="platform">
+              <option value="">Select platform</option>
+              <option value="youtube">YouTube</option>
+              <option value="tiktok">TikTok</option>
+              <option value="instagram">Instagram</option>
+              <option value="twitter">X / Twitter</option>
+              <option value="twitch">Twitch</option>
+              <option value="podcast">Podcast</option>
+              <option value="blog">Blog / Newsletter</option>
+              <option value="multiple">Multiple Platforms</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="followers">Audience Size</label>
+            <select id="followers" name="followers">
+              <option value="">Select range</option>
+              <option value="nano">Under 10K</option>
+              <option value="micro">10K - 50K</option>
+              <option value="mid">50K - 100K</option>
+              <option value="macro">100K - 500K</option>
+              <option value="mega">500K - 1M</option>
+              <option value="celebrity">1M+</option>
+            </select>
+          </div>
+          <div class="form-group full-width">
+            <label for="niche">Your Niche / Content Type</label>
+            <input type="text" id="niche" name="niche" placeholder="e.g., Tech reviews, Lifestyle, Gaming, Film commentary, Sports">
+          </div>
+          <div class="form-group full-width">
+            <label for="links">Profile Links</label>
+            <textarea id="links" name="links" style="min-height: 80px;" placeholder="Share links to your main profiles or best content"></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label for="about">Tell us about yourself</label>
+            <textarea id="about" name="about" placeholder="What makes your content unique? What kind of projects excite you? Any brands or categories you'd love (or refuse) to work with?"></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Projects CTA -->
+  <section class="projects-cta">
+    <h3>Ready to create?</h3>
+    <p>Check out our current projects and apply directly to campaigns that interest you.</p>
+    <a href="projects.html" class="btn btn-primary">View Current Projects →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 CreatorFunds. All rights reserved. <a href="mailto:apply@creatorfunds.org">apply@creatorfunds.org</a></p>
+  </footer>
+</body>
+</html>

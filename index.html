@@ -17,8 +17,67 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
   
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Navigation */
+    .main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(254, 254, 254, 0.85);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      text-decoration: none;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    .nav-menu a:hover {
+      color: var(--coral);
+    }
+    @media (max-width: 768px) {
+      .main-nav { padding: 1rem 1.5rem; }
+      .nav-menu { display: none; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <a href="index.html" class="nav-logo">CreatorFunds</a>
+    <ul class="nav-menu">
+      <li><a href="brands.html">For Brands</a></li>
+      <li><a href="creators.html">For Creators</a></li>
+      <li><a href="projects.html">Current Projects</a></li>
+      <li><a href="mailto:apply@creatorfunds.org">Contact</a></li>
+    </ul>
+  </nav>
   
   <!-- Animated gradient mesh background -->
   <div class="gradient-bg">

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Projects | CreatorFunds</title>
+  <meta name="description" content="Explore active CreatorFunds campaigns. Apply now to collaborate with brands, films, and products looking for authentic creator voices.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --bg-primary: #fefefe;
+      --bg-secondary: #f8f7f4;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666;
+      --coral: #ff6b6b;
+      --violet: #8b5cf6;
+      --magenta: #ec4899;
+      --amazon-orange: #FF9900;
+      --gradient-hero: linear-gradient(135deg, var(--coral) 0%, var(--magenta) 50%, var(--violet) 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(254, 254, 254, 0.9);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-decoration: none;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--coral);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+    }
+    
+    .btn-amazon {
+      background: var(--amazon-orange);
+      color: #111;
+      box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+    }
+    
+    .btn-amazon:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--text-primary);
+      border: 2px solid rgba(0,0,0,0.1);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+    
+    /* Page Header */
+    .page-header {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,107,107,0.03) 0%, transparent 50%);
+    }
+    
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Featured Project - TNS */
+    .featured-project {
+      background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0f1c2e 100%);
+      color: white;
+      padding: 0;
+      margin: 2rem;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .featured-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: var(--coral);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 10;
+    }
+    
+    .featured-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 700px;
+    }
+    
+    .featured-media {
+      position: relative;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .featured-video-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .featured-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .featured-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+    
+    .featured-thumbnail:hover {
+      transform: scale(1.02);
+    }
+    
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    
+    .play-button::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 18px solid transparent;
+      border-bottom: 18px solid transparent;
+      border-left: 30px solid #0a1628;
+      margin-left: 8px;
+    }
+    
+    .play-button:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+    }
+    
+    .featured-info {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-platforms {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .platform-tag {
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    .platform-tag.prime {
+      background: rgba(255, 153, 0, 0.2);
+      color: var(--amazon-orange);
+    }
+    
+    .platform-tag.apple {
+      background: rgba(255,255,255,0.15);
+    }
+    
+    .featured-info h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    
+    .featured-subtitle {
+      font-size: 1.3rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    
+    .featured-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+    
+    .featured-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .highlight {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .highlight-icon {
+      font-size: 1.2rem;
+    }
+    
+    .featured-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .seeking-box {
+      background: rgba(255, 107, 107, 0.15);
+      border: 1px solid rgba(255, 107, 107, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .seeking-box h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--coral);
+      margin-bottom: 0.75rem;
+    }
+    
+    .seeking-box p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    .seeking-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .seeking-tag {
+      padding: 0.4rem 0.8rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    /* Other Projects */
+    .other-projects {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      margin-bottom: 3rem;
+    }
+    
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--violet);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+    }
+    
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    .project-image.blogfanatic {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+    }
+    
+    .project-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .project-status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.4rem 1rem;
+      background: #22c55e;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .project-body {
+      padding: 2rem;
+    }
+    
+    .project-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-body .tagline {
+      color: var(--violet);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-body p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .meta-tag {
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    
+    .project-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .project-actions .btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: var(--bg-secondary);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    footer p {
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+    
+    footer a {
+      color: var(--coral);
+      text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 968px) {
+      .featured-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-media {
+        min-height: 350px;
+      }
+      
+      .featured-info {
+        padding: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem 1.5rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .featured-project {
+        margin: 1rem;
+        border-radius: 20px;
+      }
+      
+      .featured-info {
+        padding: 2rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">CreatorFunds</a>
+    <ul class="nav-links">
+      <li><a href="brands.html">For Brands</a></li>
+      <li><a href="creators.html">For Creators</a></li>
+      <li><a href="projects.html" class="active">Current Projects</a></li>
+      <li><a href="mailto:apply@creatorfunds.org">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Current Projects</h1>
+    <p>Live campaigns actively seeking creators. Find your next collaboration.</p>
+  </header>
+
+  <!-- Featured Project: The New Saints -->
+  <section class="featured-project">
+    <span class="featured-badge">🔥 Featured Campaign</span>
+    
+    <div class="featured-content">
+      <div class="featured-media">
+        <div class="featured-video-wrapper" id="video-container">
+          <img 
+            src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/9ef9d09b5e5a4c8e9f4e4e0c9b7c1d3e6a5f4b3c2d1e0f9a8b7c6d5e4f3a2b1c._UR1920,1080_SX720_FMwebp_.jpg" 
+            alt="The New Saints Documentary" 
+            class="featured-thumbnail"
+            id="video-thumbnail"
+            onerror="this.style.background='linear-gradient(135deg, #0a1628 0%, #1a2744 100%)'; this.style.display='flex'; this.innerHTML='<span style=&quot;color:white;font-family:Syne;font-size:2rem;font-weight:800&quot;>TNS</span>'"
+          >
+          <div class="play-button" id="play-button"></div>
+        </div>
+      </div>
+      
+      <div class="featured-info">
+        <div class="featured-platforms">
+          <span class="platform-tag prime">Amazon Prime Video</span>
+          <span class="platform-tag apple">Apple TV</span>
+        </div>
+        
+        <h2>The New Saints: Road To Europe</h2>
+        <p class="featured-subtitle">The Mike Harris Story</p>
+        
+        <p class="featured-description">
+          This isn't just another football documentary. It follows Mike Harris, a man who's taken a small village club to the edge of European football. But it's more than the game—it's about people, chaos, and the wild moments they face every week.
+        </p>
+        
+        <p class="featured-description">
+          The documentary charts the club's historic journey to becoming the first Welsh domestic side to qualify for a UEFA competition proper, reaching the UEFA Conference League. At its heart is a story of ambition, resilience, and doing things differently.
+        </p>
+        
+        <div class="featured-highlights">
+          <div class="highlight">
+            <span class="highlight-icon">⚽</span>
+            <span>Welsh Football History</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-icon">🏆</span>
+            <span>UEFA Conference League</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-icon">🎬</span>
+            <span>Behind-the-Scenes Access</span>
+          </div>
+          <div class="highlight">
+            <span class="highlight-icon">🌍</span>
+            <span>Global Streaming</span>
+          </div>
+        </div>
+        
+        <div class="featured-cta">
+          <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/" target="_blank" class="btn btn-amazon">
+            Watch on Prime Video →
+          </a>
+          <a href="mailto:apply@creatorfunds.org?subject=TNS%20Documentary%20-%20Creator%20Application&body=I'd%20like%20to%20apply%20to%20review%20The%20New%20Saints%20documentary.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-outline">
+            Apply to Review
+          </a>
+        </div>
+        
+        <div class="seeking-box">
+          <h4>🎯 Actively Seeking Creators</h4>
+          <p>We're building a community of football fans, sports enthusiasts, reality TV lovers, and lovers of the underdog to watch and review this remarkable British football story.</p>
+          <div class="seeking-tags">
+            <span class="seeking-tag">Football Content</span>
+            <span class="seeking-tag">Sports Commentary</span>
+            <span class="seeking-tag">Documentary Reviews</span>
+            <span class="seeking-tag">Reality TV</span>
+            <span class="seeking-tag">Underdog Stories</span>
+            <span class="seeking-tag">British Sports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Projects -->
+  <section class="other-projects">
+    <div class="section-header">
+      <span class="section-label">More Opportunities</span>
+      <h2 class="section-title">Open Campaigns</h2>
+    </div>
+    
+    <div class="projects-grid">
+      <!-- BlogFanatic -->
+      <div class="project-card">
+        <div class="project-image blogfanatic">
+          <span class="project-logo">BlogFanatic</span>
+          <span class="project-status">Active</span>
+        </div>
+        <div class="project-body">
+          <h3>BlogFanatic</h3>
+          <p class="tagline">AI-Powered Content Creation</p>
+          <p>BlogFanatic is revolutionizing content creation with AI assistance. We're looking for creators to explore, review, and showcase how AI can enhance the blogging and content creation workflow.</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">Tech</span>
+            <span class="meta-tag">AI Tools</span>
+            <span class="meta-tag">Content Creation</span>
+            <span class="meta-tag">Productivity</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="https://www.blogfanatic.com" target="_blank" class="btn btn-secondary">Visit Site</a>
+            <a href="mailto:apply@creatorfunds.org?subject=BlogFanatic%20Campaign%20Application&body=I'd%20like%20to%20apply%20to%20the%20BlogFanatic%20campaign.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Coming Soon placeholder -->
+      <div class="project-card" style="opacity: 0.6;">
+        <div class="project-image" style="background: linear-gradient(135deg, #374151 0%, #4b5563 100%);">
+          <span class="project-logo">Coming Soon</span>
+        </div>
+        <div class="project-body">
+          <h3>More Projects Loading...</h3>
+          <p class="tagline">Stay Tuned</p>
+          <p>We're constantly adding new campaigns across entertainment, tech, sports, and lifestyle. Join our creator network to be first to hear about new opportunities.</p>
+          
+          <div class="project-meta">
+            <span class="meta-tag">Various Categories</span>
+          </div>
+          
+          <div class="project-actions">
+            <a href="creators.html" class="btn btn-primary" style="width: 100%;">Join Creator Network</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Don't see your niche?</h2>
+    <p>We're always looking for unique voices. Apply to our network and we'll match you with the right projects.</p>
+    <div class="cta-buttons">
+      <a href="creators.html" class="btn btn-primary">Join as Creator</a>
+      <a href="brands.html" class="btn btn-secondary">Partner as Brand</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 CreatorFunds. All rights reserved. <a href="mailto:apply@creatorfunds.org">apply@creatorfunds.org</a></p>
+  </footer>
+
+  <script>
+    // Video play functionality
+    const thumbnail = document.getElementById('video-thumbnail');
+    const playButton = document.getElementById('play-button');
+    const videoContainer = document.getElementById('video-container');
+    
+    function playVideo() {
+      videoContainer.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/9XquSVwWUZg?autoplay=1&rel=0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+        ></iframe>
+      `;
+    }
+    
+    if (thumbnail) thumbnail.addEventListener('click', playVideo);
+    if (playButton) playButton.addEventListener('click', playVideo);
+  </script>
+</body>
+</html>
