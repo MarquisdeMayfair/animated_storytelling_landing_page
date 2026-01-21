@@ -812,6 +812,9 @@
           <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/0MPMK7C805L3K0QK3RIS2KHZI2" target="_blank" class="btn btn-amazon" id="prime-video-link" onclick="gtag('event', 'click', {event_category: 'TNS Documentary', event_label: 'Prime Video Link', value: 1});">
             Watch on Prime Video →
           </a>
+          <a href="https://tv.apple.com/gb/movie/the-new-saints-road-to-europe-the-mike-harris-story/umc.cmc.7kb5wd3drqt4jzngilfx2t2lg" target="_blank" class="btn btn-outline" id="apple-tv-link" onclick="gtag('event', 'click', {event_category: 'TNS Documentary', event_label: 'Apple TV Link', value: 1});">
+            Watch on Apple TV →
+          </a>
           <button class="btn btn-outline" onclick="openModal('tns-modal')">
             Apply to Review
           </button>
@@ -1106,6 +1109,15 @@
             <input type="checkbox" name="watched_confirmed" value="yes" required style="margin-top: 0.25rem; width: 20px; height: 20px; cursor: pointer; flex-shrink: 0;">
             <span>I have watched <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/0MPMK7C805L3K0QK3RIS2KHZI2" target="_blank" style="color: var(--violet); text-decoration: underline;">the video</a> and I confirm, this is a program I would like to review and promote.</span>
           </label>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-platform-watched">Which platform did you watch this on?</label>
+          <select id="tns-platform-watched" name="platform_watched" required>
+            <option value="">Select platform</option>
+            <option value="amazon-prime">Amazon Prime Video</option>
+            <option value="apple-tv">Apple TV</option>
+          </select>
         </div>
         
         <div class="modal-form-group">
