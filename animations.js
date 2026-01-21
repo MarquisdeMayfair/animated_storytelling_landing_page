@@ -116,7 +116,7 @@ function initStrikeThrough() {
   gsap.utils.toArray('.strike-through').forEach(element => {
     ScrollTrigger.create({
       trigger: element,
-      start: 'top 80%',
+      start: 'top 55%', // Trigger when text is more central to viewport
       onEnter: () => element.classList.add('is-visible'),
       onLeaveBack: () => element.classList.remove('is-visible')
     });
