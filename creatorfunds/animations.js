@@ -272,20 +272,22 @@ function initStats() {
     const target = parseInt(counter.dataset.target);
     let hasAnimated = false;
     
+    // Create a proxy object for smooth animation
+    const obj = { value: 0 };
+    
     ScrollTrigger.create({
-      trigger: counter,
-      start: 'top 80%',
+      trigger: counter.closest('.stat-card') || counter,
+      start: 'top 75%',
       onEnter: () => {
         if (hasAnimated) return;
         hasAnimated = true;
         
-        gsap.to(counter, {
-          innerHTML: target,
-          duration: 2,
-          ease: 'power2.out',
-          snap: { innerHTML: 1 },
-          onUpdate: function() {
-            counter.textContent = Math.round(counter.innerHTML);
+        gsap.to(obj, {
+          value: target,
+          duration: 2.5,
+          ease: 'power3.out',
+          onUpdate: () => {
+            counter.textContent = Math.round(obj.value);
           }
         });
       }
