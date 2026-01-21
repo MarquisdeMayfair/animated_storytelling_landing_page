@@ -617,6 +617,132 @@
         grid-template-columns: 1fr;
       }
     }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+    }
+    
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .modal-content {
+      background-color: white;
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .modal-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 0;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+      line-height: 1;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .close-modal:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    .modal-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .modal-form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .modal-form-group label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+    
+    .modal-form-group input,
+    .modal-form-group select,
+    .modal-form-group textarea {
+      padding: 1rem;
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      background: var(--bg-primary);
+    }
+    
+    .modal-form-group input:focus,
+    .modal-form-group select:focus,
+    .modal-form-group textarea:focus {
+      outline: none;
+      border-color: var(--violet);
+    }
+    
+    .modal-form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .modal-form-submit {
+      margin-top: 1rem;
+    }
+    
+    .modal-form-submit .btn {
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 2rem;
+        margin: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -682,9 +808,9 @@
           <a href="https://www.primevideo.com/detail/The-New-Saints---Road-To-Europe-The-Mike-Harris-Story/0MPMK7C805L3K0QK3RIS2KHZI2" target="_blank" class="btn btn-amazon" id="prime-video-link" onclick="gtag('event', 'click', {event_category: 'TNS Documentary', event_label: 'Prime Video Link', value: 1});">
             Watch on Prime Video →
           </a>
-          <a href="mailto:apply@creatorfunds.org?subject=TNS%20Documentary%20-%20Creator%20Application&body=I'd%20like%20to%20apply%20to%20review%20The%20New%20Saints%20documentary.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-outline">
+          <button class="btn btn-outline" onclick="openModal('tns-modal')">
             Apply to Review
-          </a>
+          </button>
         </div>
         
         <div class="seeking-box">
@@ -743,7 +869,7 @@
           
           <div class="project-actions">
             <a href="https://www.blogfanatic.com" target="_blank" class="btn btn-secondary">Visit Site</a>
-            <a href="mailto:apply@creatorfunds.org?subject=BlogFanatic%20Campaign%20Application&body=I'd%20like%20to%20apply%20to%20the%20BlogFanatic%20campaign.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-primary">Apply Now</a>
+            <button class="btn btn-primary" onclick="openModal('blogfanatic-modal')">Apply Now</button>
           </div>
         </div>
       </div>
@@ -776,7 +902,7 @@
           
           <div class="project-actions">
             <a href="https://www.marquisdemayfair.com" target="_blank" class="btn btn-secondary">Visit Site</a>
-            <a href="mailto:apply@creatorfunds.org?subject=Marquis%20de%20Mayfair%20Campaign%20Application%20(18%2B)&body=I%20confirm%20I%20am%2018%2B%20and%20would%20like%20to%20apply%20to%20the%20Marquis%20de%20Mayfair%20campaign.%0A%0AMy%20platform:%0AMy%20audience%20size:%0AMy%20content%20niche:%0A%0AWhy%20I'm%20interested:" class="btn btn-primary">Apply Now (18+)</a>
+            <button class="btn btn-primary" onclick="openModal('marquis-modal')">Apply Now (18+)</button>
           </div>
         </div>
       </div>
@@ -893,6 +1019,251 @@
     
     if (thumbnail) thumbnail.addEventListener('click', playVideo);
     if (playButton) playButton.addEventListener('click', playVideo);
+    
+    // Modal functions
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
   </script>
+  
+  <!-- TNS Documentary Application Modal -->
+  <div id="tns-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Apply to Review: The New Saints</h3>
+        <button class="close-modal" onclick="closeModal('tns-modal')">&times;</button>
+      </div>
+      <form name="tns-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="modal-form">
+        <input type="hidden" name="form-name" value="tns-application">
+        <input type="hidden" name="campaign" value="The New Saints Documentary">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        
+        <div class="modal-form-group">
+          <label for="tns-name">Your Name / Handle</label>
+          <input type="text" id="tns-name" name="name" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-email">Email Address</label>
+          <input type="email" id="tns-email" name="email" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-platform">Primary Platform</label>
+          <select id="tns-platform" name="platform" required>
+            <option value="">Select platform</option>
+            <option value="youtube">YouTube</option>
+            <option value="tiktok">TikTok</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">X / Twitter</option>
+            <option value="twitch">Twitch</option>
+            <option value="podcast">Podcast</option>
+            <option value="blog">Blog / Newsletter</option>
+            <option value="multiple">Multiple Platforms</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-audience">Audience Size</label>
+          <select id="tns-audience" name="audience_size">
+            <option value="">Select range</option>
+            <option value="under-10k">Under 10K</option>
+            <option value="10k-50k">10K - 50K</option>
+            <option value="50k-100k">50K - 100K</option>
+            <option value="100k-500k">100K - 500K</option>
+            <option value="500k-1m">500K - 1M</option>
+            <option value="1m+">1M+</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-niche">Your Content Niche</label>
+          <input type="text" id="tns-niche" name="niche" placeholder="e.g., Football content, Sports commentary, Documentary reviews">
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="tns-interest">Why are you interested in reviewing this documentary?</label>
+          <textarea id="tns-interest" name="interest" placeholder="Tell us about your connection to football, sports, or underdog stories..."></textarea>
+        </div>
+        
+        <div class="modal-form-submit">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- BlogFanatic Application Modal -->
+  <div id="blogfanatic-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Apply: BlogFanatic Campaign</h3>
+        <button class="close-modal" onclick="closeModal('blogfanatic-modal')">&times;</button>
+      </div>
+      <form name="blogfanatic-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="modal-form">
+        <input type="hidden" name="form-name" value="blogfanatic-application">
+        <input type="hidden" name="campaign" value="BlogFanatic">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        
+        <div class="modal-form-group">
+          <label for="bf-name">Your Name / Handle</label>
+          <input type="text" id="bf-name" name="name" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="bf-email">Email Address</label>
+          <input type="email" id="bf-email" name="email" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="bf-platform">Primary Platform</label>
+          <select id="bf-platform" name="platform" required>
+            <option value="">Select platform</option>
+            <option value="youtube">YouTube</option>
+            <option value="tiktok">TikTok</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">X / Twitter</option>
+            <option value="blog">Blog / Newsletter</option>
+            <option value="multiple">Multiple Platforms</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="bf-audience">Audience Size</label>
+          <select id="bf-audience" name="audience_size">
+            <option value="">Select range</option>
+            <option value="under-10k">Under 10K</option>
+            <option value="10k-50k">10K - 50K</option>
+            <option value="50k-100k">50K - 100K</option>
+            <option value="100k-500k">100K - 500K</option>
+            <option value="500k-1m">500K - 1M</option>
+            <option value="1m+">1M+</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="bf-niche">Your Content Niche</label>
+          <input type="text" id="bf-niche" name="niche" placeholder="e.g., Tech reviews, AI tools, Content creation, Productivity">
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="bf-experience">Do you have experience with AI content creation tools?</label>
+          <textarea id="bf-experience" name="experience" placeholder="Tell us about your experience with AI tools, blogging, or content creation..."></textarea>
+        </div>
+        
+        <div class="modal-form-submit">
+          <button type="submit" class="btn btn-primary">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Marquis de Mayfair Application Modal -->
+  <div id="marquis-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Apply: Marquis de Mayfair (18+)</h3>
+        <button class="close-modal" onclick="closeModal('marquis-modal')">&times;</button>
+      </div>
+      <form name="marquis-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="modal-form">
+        <input type="hidden" name="form-name" value="marquis-application">
+        <input type="hidden" name="campaign" value="Marquis de Mayfair">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        
+        <div style="background: rgba(255,107,107,0.1); border-left: 3px solid var(--coral); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
+            <strong>18+ Only:</strong> This campaign is for adults only. By submitting this form, you confirm you are 18 years or older.
+          </p>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-name">Your Name / Handle</label>
+          <input type="text" id="mdm-name" name="name" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-email">Email Address</label>
+          <input type="email" id="mdm-email" name="email" required>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-age-confirm">Age Confirmation</label>
+          <select id="mdm-age-confirm" name="age_confirm" required>
+            <option value="">Select</option>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-44">35-44</option>
+            <option value="45+">45+</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-platform">Primary Platform</label>
+          <select id="mdm-platform" name="platform" required>
+            <option value="">Select platform</option>
+            <option value="youtube">YouTube</option>
+            <option value="tiktok">TikTok</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">X / Twitter</option>
+            <option value="podcast">Podcast</option>
+            <option value="blog">Blog / Newsletter</option>
+            <option value="multiple">Multiple Platforms</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-audience">Audience Size</label>
+          <select id="mdm-audience" name="audience_size">
+            <option value="">Select range</option>
+            <option value="under-10k">Under 10K</option>
+            <option value="10k-50k">10K - 50K</option>
+            <option value="50k-100k">50K - 100K</option>
+            <option value="100k-500k">100K - 500K</option>
+            <option value="500k-1m">500K - 1M</option>
+            <option value="1m+">1M+</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-niche">Your Content Niche</label>
+          <input type="text" id="mdm-niche" name="niche" placeholder="e.g., Lifestyle, Adult content, Luxury brands, Relationships">
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-quiz">Have you taken the "What is your bedroom archetype?" quiz?</label>
+          <select id="mdm-quiz" name="quiz_taken">
+            <option value="">Select</option>
+            <option value="yes">Yes, I've taken it</option>
+            <option value="no">Not yet, but I will</option>
+          </select>
+        </div>
+        
+        <div class="modal-form-group">
+          <label for="mdm-interest">Why are you interested in this campaign?</label>
+          <textarea id="mdm-interest" name="interest" placeholder="Tell us why you'd like to participate in the podcast collaboration..."></textarea>
+        </div>
+        
+        <div class="modal-form-submit">
+          <button type="submit" class="btn btn-primary">Submit Application (18+)</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
