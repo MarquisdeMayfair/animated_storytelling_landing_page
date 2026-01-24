@@ -1126,19 +1126,345 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   RESPONSIVE
+   MOBILE HAMBURGER MENU
    ───────────────────────────────────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--text-primary);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  padding: 100px 24px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu-links li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-menu.active .mobile-menu-links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu.active .mobile-menu-links li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu.active .mobile-menu-links li:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu.active .mobile-menu-links li:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu.active .mobile-menu-links li:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu.active .mobile-menu-links li:nth-child(5) { transition-delay: 0.3s; }
+
+.mobile-menu-links a {
+  display: block;
+  padding: 1.25rem 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-links a:hover,
+.mobile-menu-links a.active {
+  color: var(--coral);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE - MOBILE FIRST
+   ───────────────────────────────────────────────────────────────── */
+
+/* Prevent horizontal overflow globally */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure all containers respect viewport */
+.container,
+.section,
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Images should never overflow */
+img {
+  height: auto;
+}
+
 @media (max-width: 768px) {
-  .section {
-    padding: 70px 20px;
+  /* Show hamburger, hide desktop menu */
+  .hamburger {
+    display: flex;
   }
   
+  .mobile-menu {
+    display: block;
+  }
+  
+  .nav-menu {
+    display: none !important;
+  }
+  
+  /* Section padding */
+  .section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+  
+  .hero {
+    min-height: 80vh;
+    padding-top: 100px;
+  }
+  
+  /* Typography scaling for mobile */
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    word-wrap: break-word;
+  }
+  
+  .large-text {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  .display-text {
+    font-size: clamp(1.75rem, 7vw, 3rem);
+  }
+  
+  .statement-text {
+    font-size: clamp(1.75rem, 8vw, 3.5rem);
+  }
+  
+  .body-text {
+    font-size: 1rem;
+  }
+  
+  .big-quote {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+    padding: 0 8px;
+  }
+  
+  /* Hero badge */
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+  
+  /* Scroll cue */
+  .scroll-cue {
+    bottom: 30px;
+  }
+  
+  .scroll-line {
+    height: 50px;
+  }
+  
+  /* Split layout stacking */
+  .split-layout {
+    gap: 40px;
+  }
+  
+  /* Image frames */
+  .image-frame {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+  
+  /* Stats */
+  .stat-number {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .stat-prefix,
+  .stat-suffix {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  .stat-card {
+    padding: 30px 16px;
+  }
+  
+  /* Comparison block */
+  .compare-text {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+    text-align: center;
+  }
+  
+  /* Column cards */
+  .column-card {
+    padding: 30px 24px;
+    border-radius: 20px;
+  }
+  
+  .card-list li {
+    font-size: 1rem;
+    padding: 10px 0 10px 24px;
+  }
+  
+  /* CTA section */
+  .cta-section {
+    padding: 80px 16px;
+  }
+  
+  .cta-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  .cta-btn {
+    width: 100%;
+    padding: 16px 32px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 60px 16px 30px;
+  }
+  
+  .footer-grid {
+    text-align: center;
+  }
+  
+  /* Gradient orbs - reduce on mobile */
   .gradient-orb {
     opacity: 0.12;
   }
   
+  .orb-1 { width: 400px; height: 400px; }
+  .orb-2 { width: 300px; height: 300px; }
+  .orb-3 { width: 250px; height: 250px; }
+  .orb-4 { width: 200px; height: 200px; }
+  
+  /* Hide shapes on mobile */
   .shapes-container {
     display: none;
+  }
+  
+  /* Finale section */
+  .finale-text {
+    margin-bottom: 40px;
+  }
+  
+  .finale-highlight {
+    font-size: 1.4em;
+  }
+  
+  .logo-reveal {
+    margin-top: 60px;
+  }
+  
+  /* Ticker */
+  .ticker-item {
+    font-size: 0.95rem;
+  }
+  
+  /* Inline text */
+  .inline-text-block {
+    padding: 0 8px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 12px;
+  }
+  
+  .hero {
+    padding-top: 90px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+  
+  .large-text {
+    font-size: clamp(1.25rem, 7vw, 2rem);
+  }
+  
+  .display-text {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  .statement-text {
+    font-size: clamp(1.5rem, 9vw, 3rem);
+  }
+  
+  .column-card {
+    padding: 24px 20px;
+  }
+  
+  .stat-card {
+    padding: 24px 12px;
+  }
+  
+  .footer {
+    padding: 50px 12px 24px;
   }
 }
 

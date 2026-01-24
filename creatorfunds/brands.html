@@ -454,8 +454,107 @@
       text-decoration: none;
     }
     
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--text-secondary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 100px 24px 40px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mobile-menu-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-menu-links li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .mobile-menu.active .mobile-menu-links li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu.active .mobile-menu-links li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu-links a {
+      display: block;
+      padding: 1.25rem 0;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-primary);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: color 0.3s ease;
+    }
+    .mobile-menu-links a:hover,
+    .mobile-menu-links a.active {
+      color: var(--coral);
+    }
+    
+    /* Prevent horizontal overflow */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+      
       .nav {
         padding: 1rem 1.5rem;
       }
@@ -464,17 +563,124 @@
         display: none;
       }
       
+      .hero {
+        min-height: auto;
+        padding: 7rem 1.5rem 3rem;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      section {
+        padding: 3rem 1.5rem;
+      }
+      
+      .section-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
+      
+      .section-text {
+        font-size: 1rem;
+      }
+      
+      .features {
+        padding: 3rem 1.5rem;
+      }
+      
+      .feature-card {
+        padding: 1.5rem;
+      }
+      
+      .campfire {
+        padding: 4rem 1.5rem;
+      }
+      
+      .campfire h2 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+      
+      .campfire p {
+        font-size: 1rem;
+      }
+      
+      .voice-tag {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+      
       .form-grid {
         grid-template-columns: 1fr;
       }
       
       .form {
-        padding: 2rem;
+        padding: 1.5rem;
+      }
+      
+      .projects-cta {
+        padding: 3rem 1.5rem;
+      }
+      
+      footer {
+        padding: 2rem 1.5rem;
+      }
+      
+      footer > div > div:first-child {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero {
+        padding: 6rem 1rem 2rem;
+      }
+      
+      .hero h1 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+      }
+      
+      section {
+        padding: 2.5rem 1rem;
+      }
+      
+      .features {
+        padding: 2.5rem 1rem;
+      }
+      
+      .form {
+        padding: 1.25rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="brands.html" class="active">For Brands</a></li>
+      <li><a href="creators.html">For Creators</a></li>
+      <li><a href="projects.html">Current Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
   <!-- Navigation -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">CreatorFunds</a>
@@ -484,6 +690,11 @@
       <li><a href="projects.html">Current Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <!-- Hero -->
@@ -641,17 +852,39 @@
 
   <!-- Footer -->
   <footer>
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
         <div>
-          <p style="opacity: 0.7; font-size: 0.9rem;">London • Bangkok • NYC • Palm Springs • Lisbon • Cape Town</p>
+          <p style="opacity: 0.7; font-size: 0.85rem;">London • Bangkok • NYC • Palm Springs • Lisbon • Cape Town</p>
         </div>
         <div>
-          <p style="opacity: 0.7; font-size: 0.9rem;"><a href="mailto:apply@creatorfunds.org" style="color: var(--coral); text-decoration: none;">apply@creatorfunds.org</a></p>
+          <p style="opacity: 0.7; font-size: 0.85rem;"><a href="mailto:apply@creatorfunds.org" style="color: var(--coral); text-decoration: none;">apply@creatorfunds.org</a></p>
         </div>
       </div>
-      <p style="opacity: 0.6; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 1.5rem;">© 2026 CreatorFunds. All rights reserved.</p>
+      <p style="opacity: 0.6; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; margin-top: 1.5rem;">© 2026 CreatorFunds. All rights reserved.</p>
     </div>
   </footer>
+  
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
