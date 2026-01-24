@@ -233,17 +233,48 @@ body {
   margin-right: 0.15em;
 }
 
-/* Fallback: show content if JS fails */
-.no-js .word-animate,
-.no-js .line-reveal,
-.no-js .char-reveal,
-.no-js .fade-up,
-.no-js .word-pop,
-.no-js .quote-word,
-.no-js .stat-card,
-.no-js .hero-badge {
+/* CRITICAL: Show content immediately, animations are progressive enhancement */
+/* Content is visible by default - JS adds .will-animate class to enable animations */
+.word-animate,
+.line-reveal,
+.char-reveal,
+.fade-up,
+.word-pop,
+.quote-word,
+.stat-card,
+.hero-badge,
+.frame-image,
+.cf-logo,
+.finale-word,
+.finale-highlight,
+.line-by-line .line {
   opacity: 1 !important;
   transform: none !important;
+}
+
+/* Only hide for animation when JS has loaded and is ready */
+.js-ready .word-animate,
+.js-ready .line-reveal,
+.js-ready .char-reveal,
+.js-ready .fade-up,
+.js-ready .word-pop,
+.js-ready .quote-word,
+.js-ready .stat-card,
+.js-ready .hero-badge {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.js-ready .frame-image {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.js-ready .cf-logo,
+.js-ready .finale-word,
+.js-ready .finale-highlight,
+.js-ready .line-by-line .line {
+  opacity: 0;
 }
 
 .highlight-word {

@@ -7,6 +7,9 @@
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+// Enable animation states only after GSAP is loaded
+document.documentElement.classList.add('js-ready');
+
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ─────────────────────────────────────────────────────────────────
@@ -516,6 +519,9 @@ function initColumnCards() {
 // INITIALIZE ALL
 // ─────────────────────────────────────────────────────────────────
 function init() {
+  // Signal that animations are starting
+  window.gsapAnimationsStarted = true;
+  
   // Fallback: if fonts don't load in 2s, run anyway
   const runAnimations = () => {
     initHero();

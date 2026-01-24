@@ -599,6 +599,13 @@
 
   <script defer src="animations.js"></script>
   <script>
+    // Fallback: if animations haven't run in 4 seconds, show all content
+    setTimeout(function() {
+      if (!window.gsapAnimationsStarted) {
+        document.documentElement.classList.remove('js-ready');
+      }
+    }, 4000);
+    
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
