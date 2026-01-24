@@ -73,9 +73,107 @@
       .main-nav { padding: 1rem 1.5rem; }
       .nav-menu { display: none; }
     }
+    
+    /* Hamburger menu styles for this page */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 0;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--gray);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      padding: 100px 24px 40px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .mobile-menu-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-menu-links li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .mobile-menu.active .mobile-menu-links li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu.active .mobile-menu-links li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.active .mobile-menu-links li:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu-links a {
+      display: block;
+      padding: 1.25rem 0;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--black);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      transition: color 0.3s ease;
+    }
+    .mobile-menu-links a:hover {
+      color: var(--coral);
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .mobile-menu { display: block; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="brands.html">For Brands</a></li>
+      <li><a href="creators.html">For Creators</a></li>
+      <li><a href="projects.html">Current Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- Navigation -->
   <nav class="main-nav">
@@ -86,6 +184,11 @@
       <li><a href="projects.html">Current Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
   
   <!-- Animated gradient mesh background -->
@@ -496,5 +599,27 @@
   </footer>
 
   <script src="animations.js"></script>
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
